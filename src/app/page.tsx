@@ -40,7 +40,7 @@ export default function Home() {
       <main className="min-h-screen relative">
        <section className="fixed flex h-[80vh] top-0 left-0 right-0 -z-10 md:h-[100vh]  sm:h-[90vh] lg:h-[100vh] justify-between items-end px-4 lg:px-30">
         <div className="flex flex-col mx-auto leading-none text-[#fffae7] w-full max-w-full"> 
-          <div className="flex flex-col sm:flex-row justify-between font-semibold items-start sm:items-center w-full gap-2 sm:gap-0">
+          <div className="flex flex-col sm:flex-row justify-between font-semibold items-start sm:items-center w-full mb-4 sm:mb-0 sm:gap-0">
             <p className="text-sm md:font-elsie sm:text-base">Grillroom & Bar</p>
             <p className="text-sm md:font-elsie sm:text-base">Stellenbosch, South Africa</p>
           </div>
