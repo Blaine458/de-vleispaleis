@@ -7,10 +7,10 @@ export default function MainGallery() {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     
     const images = [
-        { src: "/VleisPaleis-10.jpg", alt: "Restaurant interior" },
-        { src: "/VleisPaleis-7.jpg", alt: "Restaurant dining" },
-        { src: "/VleisPaleis-8.jpg", alt: "Restaurant atmosphere" },
-        { src: "/VleisPaleis-9.jpg", alt: "Restaurant atmosphere" }
+        { src: "/VleisPaleis-10.webp", alt: "Restaurant interior" },
+        { src: "/VleisPaleis-7.webp", alt: "Restaurant dining" },
+        { src: "/VleisPaleis-8.webp", alt: "Restaurant atmosphere" },
+        { src: "/VleisPaleis-9.webp", alt: "Restaurant atmosphere" }
     ];
 
     const handlePreviousImage = () => {
@@ -58,6 +58,7 @@ export default function MainGallery() {
                                         alt={image.alt}
                                         width={800}
                                         height={600}
+                                        priority
                                         className="rounded-xl object-cover"
                                         style={{ 
                                             height: 'clamp(40vh, 60vh, 70vh)', 
