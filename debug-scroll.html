@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debug Scroll</title>
+    <style>
+        body {
+            height: 200vh;
+            background: linear-gradient(to bottom, red, blue);
+        }
+        .debug {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background: white;
+            padding: 10px;
+            border: 1px solid black;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+    <div class="debug">
+        <h3>Debug Scroll Test</h3>
+        <p>Can you scroll this page?</p>
+        <p>Body overflow: <span id="overflow"></span></p>
+        <p>Body position: <span id="position"></span></p>
+        <p>Body classes: <span id="classes"></span></p>
+        <button onclick="resetBody()">Reset Body Styles</button>
+    </div>
+    
+    <div style="height: 100vh; background: yellow; display: flex; align-items: center; justify-content: center;">
+        <h1>First Section</h1>
+    </div>
+    
+    <div style="height: 100vh; background: green; display: flex; align-items: center; justify-content: center;">
+        <h1>Second Section</h1>
+    </div>
+
+    <script>
+        function updateDebug() {
+            document.getElementById('overflow').textContent = getComputedStyle(document.body).overflow;
+            document.getElementById('position').textContent = getComputedStyle(document.body).position;
+            document.getElementById('classes').textContent = document.body.className;
+        }
+        
+        function resetBody() {
+            document.body.className = '';
+            document.body.style.overflow = '';
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.width = '';
+            document.body.style.left = '';
+            document.body.style.right = '';
+            document.body.style.touchAction = '';
+            updateDebug();
+        }
+        
+        updateDebug();
+        setInterval(updateDebug, 1000);
+    </script>
+</body>
+</html>

@@ -1,103 +1,110 @@
+"use client";
+import { useState, useRef, useEffect } from 'react';
 import Image from "next/image";
+import PrimaryButton from "@/components/PrimaryButton";
+import MainGallery from "@/components/MainGallery";
+import Reviews from "@/components/Reviews";
+import MenusSection from "@/components/MenusSection";
+import FAQ from '@/components/FAQ';
+import Footer from '@/components/Footer';
+import ReservationModal from '@/components/ReservationModal';
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const galleryRef = useRef<HTMLDivElement>(null);
+  const [isReservationModalOpen, setIsReservationModalOpen] = useState(false);
+  
+  const openReservationModal = () => setIsReservationModalOpen(true);
+  const closeReservationModal = () => setIsReservationModalOpen(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const images = [
+    { src: "https://picsum.photos/800/500?random=1", alt: "Restaurant interior" },
+    { src: "https://picsum.photos/800/500?random=2", alt: "Restaurant dining" },
+    { src: "https://picsum.photos/800/500?random=3", alt: "Restaurant atmosphere" }
+  ];
+
+  const handlePreviousImage = (): void => {
+    setCurrentImageIndex((prevIndex) => 
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    );
+  };
+
+  const handleNextImage = (): void => {
+    setCurrentImageIndex((prevIndex) => 
+      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  return (
+    <div className="min-h-screen">
+      <main className="min-h-screen relative">
+       <section className="fixed flex h-[80vh] top-0 left-0 right-0 -z-10 md:h-[100vh]  sm:h-[90vh] lg:h-[100vh] justify-between items-end px-4 lg:px-30">
+        <div className="flex flex-col mx-auto leading-none text-[#fffae7] w-full max-w-full"> 
+          <div className="flex flex-col sm:flex-row justify-between font-semibold items-start sm:items-center w-full gap-2 sm:gap-0">
+            <p className="text-sm sm:text-base">Grillroom & Bar</p>
+            <p className="text-sm sm:text-base">Stellenbosch, South Africa</p>
+          </div>
+        
+          <h1 className="font-elsie max-h-fit font-bold w-full sm:text-left break-words" style={{ fontSize: 'clamp(2rem, 10vw, 8rem)' }}>DE VLEISPALEIS</h1>
         </div>
+        <div className="absolute top-0 left-0 h-full w-full object-cover -z-[1] bg-black/50"></div>
+        <Image src="/VleisPaleis-13.webp" alt="logo" width={1920} height={1080} className="absolute bottom-0 left-0 h-full w-full object-cover object-bottom -z-10" />
+       </section>
+       <section className="flex flex-col lg:flex-row mt-[80vh] md:mt-[100vh] gap-8 w-full h-fit bg-[#fffae7] text-[#223534] py-20 lg:py-40 pl-4 lg:pl-30">
+        <div className="flex flex-col justify-between items-start font-bold lg:pr-20 w-full lg:w-1/2 px-4">
+          <div className="w-16 lg:w-24 h-1 mb-6 lg:mb-8 bg-[#82212a] rounded-full"></div>
+          <h3 className="text-4xl lg:text-6xl font-elsie mb-4 leading-tight">Dine in the heart of the Cape Winelands</h3>
+          <p className="text-lg lg:text-xl leading-relaxed font-medium mb-6 lg:mb-8">
+            Step into the extraordinary world of De Vleispaleis, where our uniquely charming ambiance invites you to savor Southern Africa's absolute finest selection of prime AAA grade steak cuts and grills. Nestled in Stellenbosch's wine country, our master chefs craft unforgettable dining experiences with exceptional cuts and world-class hospitality.
+          </p>
+          <button 
+            onClick={openReservationModal}
+            className="border-2 border-[#223534] text-[#223534] py-3 px-6 rounded-full font-semibold hover:bg-[#223534] hover:text-white transition-colors text-sm lg:text-base"
+          >
+            Reserve Your Table
+          </button> 
+        </div>
+        <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
+          <Image src="/VleisPaleis-7.jpg" alt="Restaurant interior" width={1920} height={1080} className="object-cover max-h-[50vh] lg:max-h-[70vh] w-full lg:max-w-[50%] rounded-l-full" />
+        </div>
+       </section>
+       <section className="relative flex flex-col gap-4 h-fit bg-[#fffae7] text-[#223534] pb-20 lg:pb-40">
+        <MainGallery />
+       </section>
+       <section className="flex flex-col justify-center items-center text-center gap-8 h-fit bg-[#fffae7] text-[#223534] pb-20 lg:pb-30 px-4 lg:px-8">
+          <div className="max-w-4xl w-full">
+            <h2 className="text-6xl lg:text-6xl font-elsie font-bold mb-6 lg:mb-8 text-[#223534]">Our Story</h2>
+            <div className="space-y-4 lg:space-y-6">
+              <p className="text-lg lg:text-xl leading-relaxed font-medium">
+                Proudly located in <span className="font-bold text-[#82212a]">Dorp Street</span> in the very heart of Stellenbosch's most vibrant restaurant, café and bar precinct, De Vleispaleis is an absolute and complete celebration of South African's most favourite "Sport"…grilling over flames and fiery charcoal.
+              </p>
+              <p className="text-lg lg:text-xl leading-relaxed font-medium">
+                The owners have collectively about <span className="font-bold text-[#82212a]">40 years of experience</span> of owning and always personally managing some of the most legendary and successful Grillrooms and Steakhouses in South Africa.
+              </p>
+            </div>
+            <div className="mt-8 lg:mt-12 flex justify-center">
+              <div className="w-16 lg:w-24 h-1 bg-[#82212a] rounded-full"></div>
+            </div>
+          </div>
+       </section>
+       <section className="flex flex-col gap-4 h-fit bg-[#fffae7] text-[#223534] pb-20 lg:pb-40">
+        <Reviews />
+       </section>
+       <section className="flex flex-col gap-4 h-fit bg-[#fffae7] text-[#223534] pb-20 lg:pb-40">
+        <MenusSection />
+       </section> 
+       <section className="flex flex-col gap-4 h-fit bg-[#fffae7] text-[#223534]">
+        <FAQ />
+       </section>
+       
+      
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      
+      {/* Reservation Modal */}
+      <ReservationModal 
+        isOpen={isReservationModalOpen} 
+        onClose={closeReservationModal} 
+      />
     </div>
   );
 }
