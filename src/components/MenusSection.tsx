@@ -8,7 +8,7 @@ export default function MenusSection() {
             {/* Background Image with Overlay */}
             <div className="absolute inset-0 z-0">
                 <Image
-                    src="/VleisPaleis-18.jpg"
+                    src="/VleisPaleis-18.webp"
                     alt="Restaurant interior with elegant dining setup"
                     fill
                     className="object-cover"
