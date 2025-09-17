@@ -176,7 +176,7 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                         className="flex flex-col sm:flex-row justify-between items-start sm:items-center cursor-pointer list-none p-3 sm:p-4 w-full text-left"
                     >
                         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full">
-                            <div className={`w-12 h-12 ${openItem === 4 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
+                            <div className={`w-16 h-16 ${openItem === 4 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
                                     <Image src="/5.jpg" alt="meat cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
                             </div>
                             <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
@@ -211,7 +211,7 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                         className="flex flex-col sm:flex-row justify-between items-start sm:items-center cursor-pointer list-none p-3 sm:p-4 w-full text-left"
                     >
                         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full">
-                            <div className={`w-12 h-12 ${openItem === 5 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
+                            <div className={`w-16 h-16 ${openItem === 5 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
                                     <Image src="/6.jpg" alt="meat cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
                             </div>
                             <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
@@ -246,7 +246,7 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                         className="flex flex-col sm:flex-row justify-between items-start sm:items-center cursor-pointer list-none p-3 sm:p-4 w-full text-left"
                     >
                         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full">
-                            <div className={`w-12 h-12 ${openItem === 6 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
+                            <div className={`w-16 h-16 ${openItem === 6 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
                                     <Image src="/7.jpg" alt="meat cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
                             </div>
                             <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
@@ -281,7 +281,7 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                         className="flex flex-col sm:flex-row justify-between items-start sm:items-center cursor-pointer list-none p-3 sm:p-4 w-full text-left"
                     >
                         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full">
-                            <div className={`w-12 h-12 ${openItem === 7 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
+                            <div className={`w-16 h-16 ${openItem === 7 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
                                     <Image src="/8.jpg" alt="meat cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
                             </div>
                             <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
@@ -316,7 +316,7 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                         className="flex flex-col sm:flex-row justify-between items-start sm:items-center cursor-pointer list-none p-3 sm:p-4 w-full text-left"
                     >
                         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full">
-                            <div className={`w-12 h-12 ${openItem === 8 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
+                            <div className={`w-16 h-16 ${openItem === 8 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
                                     <Image src="/9.jpg" alt="meat cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
                             </div>
                             <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
@@ -351,7 +351,7 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                         className="flex flex-col sm:flex-row justify-between items-start sm:items-center cursor-pointer list-none p-3 sm:p-4 w-full text-left"
                     >
                         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full">
-                            <div className={`w-12 h-12 ${openItem === 9 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
+                            <div className={`w-16 h-16 ${openItem === 9 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
                                     <Image src="/10.jpg" alt="meat cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
                             </div>
                             <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
@@ -386,7 +386,7 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                         className="flex flex-col sm:flex-row justify-between items-start sm:items-center cursor-pointer list-none p-3 sm:p-4 w-full text-left"
                     >
                         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full">
-                            <div className={`w-12 h-12 ${openItem === 10 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
+                            <div className={`w-16 h-16 ${openItem === 10 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
                                     <Image src="/11.jpg" alt="meat cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
                             </div>
                             <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
@@ -421,7 +421,7 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                         className="flex flex-col sm:flex-row justify-between items-start sm:items-center cursor-pointer list-none p-3 sm:p-4 w-full text-left"
                     >
                         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full">
-                            <div className={`w-12 h-12 ${openItem === 11 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
+                            <div className={`w-16 h-16 ${openItem === 11 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
                                     <Image src="/12.jpg" alt="meat cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
                             </div>
                             <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
