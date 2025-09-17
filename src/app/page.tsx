@@ -65,7 +65,7 @@ export default function Home() {
           </button> 
         </div>
         <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
-          <Image src="/VleisPaleis-7.jpg" alt="Restaurant interior" width={1920} height={1080} className="object-cover max-h-[50vh] lg:max-h-[70vh] w-full lg:max-w-[50%] rounded-l-full" />
+          <Image src="/VleisPaleis-7.webp" alt="Restaurant interior" width={1920} height={1080} className="object-cover max-h-[50vh] lg:max-h-[70vh] w-full lg:max-w-[50%] rounded-l-full" />
         </div>
        </section>
        <section className="relative flex flex-col gap-4 h-fit bg-[#fffae7] text-[#223534] pb-20 lg:pb-40">
