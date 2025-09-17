@@ -37,7 +37,7 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                         className="flex flex-col sm:flex-row justify-between items-start sm:items-center cursor-pointer list-none p-3 sm:p-4 w-full text-left"
                     >
                         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full">
-                            <div className={`w-16 h-16 sm:w-12 sm:h-12 ${openItem === 0 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center aspect-square justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
+                            <div className={`w-16 h-16 ${openItem === 0 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center aspect-square justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
                                 <Image src="/1.jpg" alt="meat cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
                             </div>
                             <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
@@ -71,7 +71,7 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                         className="flex flex-col sm:flex-row justify-between items-start sm:items-center cursor-pointer list-none p-3 sm:p-4 w-full text-left"
                     >
                         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full">
-                            <div className={`w-16 h-16 sm:w-12 sm:h-12 ${openItem === 1 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center aspect-square justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
+                            <div className={`w-16 h-16 ${openItem === 1 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center aspect-square justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
                                 <Image src="/2.jpg" alt="meat cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
                             </div>
                             <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
@@ -106,7 +106,7 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                         className="flex flex-col sm:flex-row justify-between items-start sm:items-center cursor-pointer list-none p-3 sm:p-4 w-full text-left"
                     >
                         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full">
-                            <div className={`w-16 h-16 sm:w-12 sm:h-12 ${openItem === 2 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center aspect-square justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
+                            <div className={`w-16 h-16 ${openItem === 2 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center aspect-square justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
                                     <Image src="/3.jpg" alt="meat cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
                             </div>
                             <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
@@ -141,7 +141,7 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                         className="flex flex-col sm:flex-row justify-between items-start sm:items-center cursor-pointer list-none p-3 sm:p-4 w-full text-left"
                     >
                         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full">
-                            <div className={`w-16 h-16 sm:w-12 sm:h-12 ${openItem === 3 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center aspect-square justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
+                            <div className={`w-16 h-16 ${openItem === 3 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center aspect-square justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
                                     <Image src="/4.jpg" alt="meat cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
                             </div>
                             <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
