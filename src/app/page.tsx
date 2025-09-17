@@ -48,7 +48,7 @@ export default function Home() {
           <h1 className="font-elsie max-h-fit font-bold w-full sm:text-left break-words" style={{ fontSize: 'clamp(2rem, 10vw, 8rem)' }}>DE VLEISPALEIS</h1>
         </div>
         <div className="absolute top-0 left-0 h-full w-full object-cover -z-[1] bg-black/50"></div>
-        <Image src="/VleisPaleis-13.webp" alt="logo" width={1920} height={1080} className="absolute bottom-0 left-0 h-full w-full object-cover object-bottom -z-10" />
+        <Image priority src="/VleisPaleis-13.webp" alt="logo" width={1920} height={1080} className="absolute bottom-0 left-0 h-full w-full object-cover object-bottom -z-10" />
        </section>
        <section className="flex flex-col lg:flex-row mt-[80vh] md:mt-[100vh] gap-8 w-full h-fit bg-[#fffae7] text-[#223534] py-20 lg:py-40 pl-4 lg:pl-30">
         <div className="flex flex-col justify-between items-start font-bold lg:pr-20 w-full lg:w-1/2 px-4">
