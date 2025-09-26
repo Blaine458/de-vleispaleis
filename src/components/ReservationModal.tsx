@@ -77,7 +77,7 @@ export default function ReservationModal({ isOpen, onClose }: ReservationModalPr
             >
                 {/* Header */}
                 <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-200">
-                    <h2 className="text-xl sm:text-2xl lg:text-3xl font-elsie font-bold text-[#82212a]">
+                    <h2 className="text-xl sm:text-2xl lg:text-3xl font-trajan font-bold text-[#82212a]">
                         Make a Reservation
                     </h2>
                     <button

@@ -71,7 +71,7 @@ export default function Popup() {
                     <div className="p-4">
                         {/* Header */}
                         <div className="mb-4">
-                            <h2 id="popup-title" className="text-xl font-elsie font-bold text-[#82212a] mb-1">
+                            <h2 id="popup-title" className="text-xl font-trajan font-bold text-[#82212a] mb-1">
                                 Welcome to De Vleispaleis
                             </h2>
                             <p id="popup-description" className="text-sm text-gray-600">
@@ -110,7 +110,7 @@ export default function Popup() {
                     <div className="p-4">
                         {/* Header */}
                         <div className="mb-4">
-                            <h2 id="popup-title-mobile" className="text-lg sm:text-xl font-elsie font-bold text-[#82212a] mb-1">
+                            <h2 id="popup-title-mobile" className="text-lg sm:text-xl font-trajan font-bold text-[#82212a] mb-1">
                                 Welcome to De Vleispaleis
                             </h2>
                             <p id="popup-description-mobile" className="text-xs sm:text-sm text-gray-600">

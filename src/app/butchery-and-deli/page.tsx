@@ -8,14 +8,14 @@ export default function ButcheryAndDeli() {
         <main className="flex flex-col h-fit text-[#223534]">
             <section className="fixed flex flex-col gap-4 bg-[#fffae7] min-h-[80vh] sm:min-h-[90vh] lg:min-h-[100vh] text-[#223534] -z-10 items-start justify-end w-full py-0 px-4 sm:px-8 lg:px-30">
                 <div className="flex flex-col py-0 w-full max-w-full">
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[6rem] leading-none font-elsie font-bold text-[#fffae7] z-20 break-words">BUTCHERY & DELI</h1>
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[6rem] leading-none font-trajan font-bold text-[#fffae7] z-20 break-words">BUTCHERY & DELI</h1>
                 </div>
                 <div className="bg-black/50 absolute top-0 left-0 right-0 h-full w-full z-10"></div>
                 <Image priority src="/VleisPaleis-29.webp" alt="Butchery and Deli" width={1920} height={1080} className="absolute top-0 left-0 right-0 z-0 min-h-[80vh] sm:min-h-[90vh] lg:min-h-[100vh] object-cover" />
             </section>
             <section className="flex flex-col lg:flex-row gap-8 h-fit bg-[#fffae7] mt-[80vh] md:mt-[100vh] items-center relative text-[#223534] px-4 sm:px-8 lg:px-30 pt-20 sm:pt-32 lg:pt-40">
                 <div className="flex flex-col gap-4 w-full lg:w-auto">
-                <h1 className="text-6xl sm:text-5xl md:text-6xl lg:text-[6rem] leading-none font-elsie font-bold z-20">Artisinal <br /> Butchery</h1>
+                <h1 className="text-6xl sm:text-5xl md:text-6xl lg:text-[6rem] leading-none font-trajan font-bold z-20">Artisinal <br /> Butchery</h1>
             <p className="text-base sm:text-lg font-extralight z-20 mb-8 leading-tight">You can now enjoy all of our finest AAA grade perfectly matured steak cuts for your home grill or braai…
 <br />
 <br />
@@ -28,7 +28,7 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
             </section>
             <section className="flex flex-col gap-4 h-fit bg-[#fffae7] text-[#223534]">
             <div className="flex flex-col gap-2 px-4 sm:px-8 lg:px-30 py-12 sm:py-16 lg:py-20">
-                <h2 className="text-6xl sm:text-4xl md:text-5xl lg:text-6xl font-elsie font-bold mb-6 sm:mb-8">Our Premium Cuts</h2>
+                <h2 className="text-6xl sm:text-4xl md:text-5xl lg:text-6xl font-trajan font-bold mb-6 sm:mb-8">Our Premium Cuts</h2>
                
 
                 <div className={`border-b border-[#223534]/20 ${openItem === 0 ? 'group' : ''}`}>
@@ -42,7 +42,7 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                             </div>
                             <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
                                 <h3 
-                                    className="text-lg sm:text-xl font-bold font-elsie"
+                                    className="text-lg sm:text-xl font-bold font-trajan"
                                     style={{
                                         fontSize: '1.7rem',
                                         marginBottom: '0.5rem',
@@ -76,7 +76,7 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                             </div>
                             <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
                                 <h3 
-                                    className="text-lg sm:text-xl font-bold font-elsie"
+                                    className="text-lg sm:text-xl font-bold font-trajan"
                                     style={{
                                         fontSize: '1.75rem',
                                         marginBottom: '0.5rem',
@@ -111,7 +111,7 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                             </div>
                             <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
                                 <h3 
-                                    className="text-lg sm:text-xl font-bold font-elsie"
+                                    className="text-lg sm:text-xl font-bold font-trajan"
                                     style={{
                                         fontSize: '1.75rem',
                                         marginBottom: '0.5rem',
@@ -146,7 +146,7 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                             </div>
                             <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
                                 <h3 
-                                    className="text-lg sm:text-xl font-bold font-elsie"
+                                    className="text-lg sm:text-xl font-bold font-trajan"
                                     style={{
                                         fontSize: '1.75rem',
                                         marginBottom: '0.5rem',
@@ -181,7 +181,7 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                             </div>
                             <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
                                 <h3 
-                                    className="text-lg sm:text-xl font-bold font-elsie"
+                                    className="text-lg sm:text-xl font-bold font-trajan"
                                     style={{
                                         fontSize: '1.75rem',
                                         marginBottom: '0.5rem',
@@ -216,7 +216,7 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                             </div>
                             <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
                                 <h3 
-                                    className="text-lg sm:text-xl font-bold font-elsie"
+                                    className="text-lg sm:text-xl font-bold font-trajan"
                                     style={{
                                         fontSize: '1.75rem',
                                         marginBottom: '0.5rem',
@@ -251,7 +251,7 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                             </div>
                             <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
                                 <h3 
-                                    className="text-lg sm:text-xl font-bold font-elsie"
+                                    className="text-lg sm:text-xl font-bold font-trajan"
                                     style={{
                                         fontSize: '1.75rem',
                                         marginBottom: '0.5rem',
@@ -286,7 +286,7 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                             </div>
                             <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
                                 <h3 
-                                    className="text-lg sm:text-xl font-bold font-elsie"
+                                    className="text-lg sm:text-xl font-bold font-trajan"
                                     style={{
                                         fontSize: '1.75rem',
                                         marginBottom: '0.5rem',
@@ -321,7 +321,7 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                             </div>
                             <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
                                 <h3 
-                                    className="text-lg sm:text-xl font-bold font-elsie"
+                                    className="text-lg sm:text-xl font-bold font-trajan"
                                     style={{
                                         fontSize: '1.75rem',
                                         marginBottom: '0.5rem',
@@ -356,7 +356,7 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                             </div>
                             <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
                                 <h3 
-                                    className="text-lg sm:text-xl font-bold font-elsie"
+                                    className="text-lg sm:text-xl font-bold font-trajan"
                                     style={{
                                         fontSize: '1.75rem',
                                         marginBottom: '0.5rem',
@@ -391,7 +391,7 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                             </div>
                             <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
                                 <h3 
-                                    className="text-lg sm:text-xl font-bold font-elsie"
+                                    className="text-lg sm:text-xl font-bold font-trajan"
                                     style={{
                                         fontSize: '1.75rem',
                                         marginBottom: '0.5rem',
@@ -426,7 +426,7 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                             </div>
                             <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
                                 <h3 
-                                    className="text-lg sm:text-xl font-bold font-elsie"
+                                    className="text-lg sm:text-xl font-bold font-trajan"
                                     style={{
                                         fontSize: '1.75rem',
                                         marginBottom: '0.5rem',

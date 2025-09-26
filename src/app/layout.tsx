@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Elsie } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 // import LenisProvider from "@/components/LenisProvider";
@@ -18,12 +18,6 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
-});
-
-const elsie = Elsie({
-  variable: "--font-elsie",
-  subsets: ["latin"],
-  weight: ["400", "900"], // Elsie has regular (400) and black (900) weights
 });
 
 export const metadata: Metadata = {
@@ -49,10 +43,9 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/vleis-logo.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Elsie:wght@400;900&display=swap" rel="stylesheet" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${elsie.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
           <ScrollProgress />
           <Navbar />
