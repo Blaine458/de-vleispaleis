@@ -48,7 +48,7 @@ export default function Home() {
           <h1 className="font-trajan max-h-fit font-bold w-full sm:text-left break-words" style={{ fontSize: 'clamp(2rem, 10vw, 8rem)' }}>DE VLEISPALEIS</h1>
         </div>
         <div className="absolute top-0 left-0 h-full w-full object-cover -z-[1] bg-black/50"></div>
-        <Image priority src="/VleisPaleis-13.webp" alt="logo" width={1920} height={1080} className="absolute bottom-0 left-0 h-full w-full object-cover object-bottom -z-10" />
+        <Image priority src="/VleisPaleis-13.webp" alt="logo" width={1920} height={1080} className="absolute bottom-0 left-0 grayscale contrast-125 h-full w-full object-cover object-bottom -z-10" />
        </section>
        <section className="flex flex-col lg:flex-row mt-[80vh] md:mt-[100vh] gap-8 w-full h-fit bg-[#fffae7] text-[#223534] py-20 lg:py-40 pl-4 lg:pl-30">
         <div className="flex flex-col justify-between items-start font-bold lg:pr-20 w-full lg:w-1/2 px-4">
@@ -64,8 +64,8 @@ export default function Home() {
             Reserve Your Table
           </button> 
         </div>
-        <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
-          <Image src="/VleisPaleis-7.webp" alt="Restaurant interior" width={1920} height={1080} className="object-cover max-h-[50vh] lg:max-h-[70vh] w-full lg:max-w-[50%] rounded-l-full" />
+        <div className="w-full flex justify-center lg:justify-end">
+          <Image src="/VleisPaleis-7.webp" alt="Restaurant interior" width={1920} height={1080} className="object-cover max-h-[50vh] lg:max-h-[70vh] w-full rounded-l-full" />
         </div>
        </section>
        <section className="relative flex flex-col gap-4 h-fit bg-[#fffae7] text-[#223534] pb-20 lg:pb-40">

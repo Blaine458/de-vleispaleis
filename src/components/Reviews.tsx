@@ -11,29 +11,29 @@ export default function Reviews() {
 
     const reviews = [
         {
-            text: "Absolutely incredible dining experience! The steak was perfectly cooked and the atmosphere was warm and inviting. The staff went above and beyond to make our anniversary dinner special. We'll definitely be back!",
-            name: "Sarah Mitchell",
-            source: "5 star review from Google"
+            text: "From the range of cuts , to the meal being cooked to perfection, this has to be one of the best Steak restaurants in Stellenbosch. A great venue for all occasions from date night to a night with friends. The Staff are friendly and attentive. Keep it up Vleispaleis",
+            name: "Cole H",
+            source: "5 star review from TripAdvisor"
         },
         {
-            text: "The best restaurant in town! The quality of meat is outstanding and the chef's expertise really shows. The wine selection perfectly complements each dish. Highly recommend the ribeye and the lamb chops.",
-            name: "Michael Rodriguez",
-            source: "5 star review from Google"
+            text: "Very friendly and accommodating staff. We got (without reservation) a wonderful place in the courtyard. The food is super-tasty, the wine selection excellent. Very happy to come back...",
+            name: "Schneeteufel",
+            source: "5 star review from TripAdvisor"
         },
         {
-            text: "Exceptional service and incredible food! The attention to detail in every dish is remarkable. The sommelier's wine pairing suggestions were spot on. This place sets the standard for fine dining in the area.",
-            name: "Emma Thompson",
-            source: "5 star review from Google"
+            text: "This is a meat lovers paradise so if you love good quality exceptional steaks or meat of any kind this should be one of your choices to eat in Stellenbosch. Most of our party ordered steaks, ribs or lamb chops and every plate of food was cooked to perfection with the most delicious sauces we have tasted in a long time. Some ordered fish or vegetarian meals such as salads or vegetables and the kingklip was perfectly prepared and delicious. Service from our waiter was top quality and professional.",
+            name: "Lily L",
+            source: "5 star review from TripAdvisor"
         },
         {
-            text: "Outstanding quality and presentation! Every bite was a delight. The staff is knowledgeable and friendly, making the entire experience memorable. The dry-aged steaks are absolutely phenomenal.",
-            name: "David Chen",
-            source: "5 star review from Google"
+            text: "Cozy place, waiters and staff are very friendly and polite. Quickly served, the starters came and then the fillet (the waitress's suggestion).. simply the best meat I've ever eaten in my life.",
+            name: "Luiz C",
+            source: "5 star review from TripAdvisor"
         },
         {
-            text: "A culinary masterpiece! The flavors are perfectly balanced and the presentation is art on a plate. The ambiance is elegant yet comfortable. This is definitely our new favorite restaurant for special occasions.",
-            name: "Jennifer Walsh",
-            source: "5 star review from Google"
+            text: "Wonderful restaurant in Stellenbosch near church st the center of town. This is a university town very busy lots of energy and many places to choose from when looking at where to eat. We chose this because the menu looked delicious and it was!!!",
+            name: "Barbara S",
+            source: "5 star review from TripAdvisor"
         }
     ];
 

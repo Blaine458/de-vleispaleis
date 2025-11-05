@@ -217,3 +217,209 @@ html {
   display: none;  /* Chrome, Safari and Opera */
 }
 
+.dpfancybox-overlay.dpfancybox-overlay-fixed{
+  z-index: 9999 !important;
+}
+
+/* Dineplan Widget Styling Overrides */
+.dineplan-widget,
+.dineplan-widget * {
+  font-family: var(--font-helvetica), 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+/* Override Dineplan iframe container */
+.dp-dframe {
+  border: none !important;
+  border-radius: 8px !important;
+}
+
+/* Style Dineplan modal/overlay if it appears */
+.dpfancybox-overlay {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  z-index: 9999 !important;
+}
+
+.dpfancybox-wrap {
+  background-color: #fffae7 !important;
+  border-radius: 12px !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Style Dineplan buttons to match your brand */
+.dineplan-widget button,
+.dineplan-widget .btn,
+.dineplan-widget input[type="submit"],
+.dineplan-widget input[type="button"] {
+  background-color: #82212a !important;
+  color: #fffae7 !important;
+  border: none !important;
+  border-radius: 8px !important;
+  font-family: var(--font-helvetica), 'Helvetica Neue', Arial, sans-serif !important;
+  font-weight: 600 !important;
+  padding: 12px 24px !important;
+  transition: all 0.3s ease !important;
+}
+
+.dineplan-widget button:hover,
+.dineplan-widget .btn:hover,
+.dineplan-widget input[type="submit"]:hover,
+.dineplan-widget input[type="button"]:hover {
+  background-color: #6a1a21 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 6px -1px rgba(130, 33, 42, 0.3) !important;
+}
+
+/* Style Dineplan form inputs */
+.dineplan-widget input[type="text"],
+.dineplan-widget input[type="email"],
+.dineplan-widget input[type="tel"],
+.dineplan-widget input[type="date"],
+.dineplan-widget input[type="time"],
+.dineplan-widget select,
+.dineplan-widget textarea {
+  border: 1px solid #223534 !important;
+  border-radius: 6px !important;
+  padding: 10px 12px !important;
+  font-family: var(--font-helvetica), 'Helvetica Neue', Arial, sans-serif !important;
+  color: #223534 !important;
+  background-color: #fffae7 !important;
+}
+
+.dineplan-widget input:focus,
+.dineplan-widget select:focus,
+.dineplan-widget textarea:focus {
+  outline: none !important;
+  border-color: #82212a !important;
+  box-shadow: 0 0 0 3px rgba(130, 33, 42, 0.1) !important;
+}
+
+/* Style Dineplan labels */
+.dineplan-widget label {
+  color: #223534 !important;
+  font-family: var(--font-helvetica), 'Helvetica Neue', Arial, sans-serif !important;
+  font-weight: 500 !important;
+}
+
+/* Style Dineplan headings */
+.dineplan-widget h1,
+.dineplan-widget h2,
+.dineplan-widget h3,
+.dineplan-widget h4,
+.dineplan-widget h5,
+.dineplan-widget h6 {
+  font-family: var(--font-trajan), 'Trajan Pro', serif !important;
+  color: #223534 !important;
+}
+
+.dineplan-widget h1 {
+  color: #82212a !important;
+}
+
+/* Style Dineplan text */
+.dineplan-widget p,
+.dineplan-widget span,
+.dineplan-widget div {
+  color: #223534 !important;
+  font-family: var(--font-helvetica), 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+/* Style Dineplan calendar/date picker */
+.dineplan-widget .calendar,
+.dineplan-widget .datepicker {
+  background-color: #fffae7 !important;
+  border: 1px solid #223534 !important;
+  border-radius: 8px !important;
+}
+
+.dineplan-widget .calendar-day:hover,
+.dineplan-widget .datepicker-day:hover {
+  background-color: #82212a !important;
+  color: #fffae7 !important;
+}
+
+.dineplan-widget .calendar-day.selected,
+.dineplan-widget .datepicker-day.selected {
+  background-color: #82212a !important;
+  color: #fffae7 !important;
+}
+
+/* Style Dineplan time slots */
+.dineplan-widget .time-slot,
+.dineplan-widget .time-button {
+  border: 1px solid #223534 !important;
+  border-radius: 6px !important;
+  background-color: #fffae7 !important;
+  color: #223534 !important;
+  font-family: var(--font-helvetica), 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+.dineplan-widget .time-slot:hover,
+.dineplan-widget .time-button:hover {
+  background-color: #82212a !important;
+  color: #fffae7 !important;
+  border-color: #82212a !important;
+}
+
+.dineplan-widget .time-slot.selected,
+.dineplan-widget .time-button.selected {
+  background-color: #82212a !important;
+  color: #fffae7 !important;
+  border-color: #82212a !important;
+}
+
+/* Style Dineplan links */
+.dineplan-widget a {
+  color: #82212a !important;
+  text-decoration: none !important;
+}
+
+.dineplan-widget a:hover {
+  color: #6a1a21 !important;
+  text-decoration: underline !important;
+}
+
+/* Style Dineplan widget footer */
+.dp-widget-footer {
+  background-color: #fffae7 !important;
+  border-top: 1px solid #223534 !important;
+  padding: 12px !important;
+  text-align: center !important;
+}
+
+.dp-widget-footer a {
+  color: #223534 !important;
+  font-size: 10px !important;
+  opacity: 0.6 !important;
+}
+
+.dp-widget-footer a:hover {
+  opacity: 1 !important;
+}
+
+/* Hide or style Dineplan branding if needed */
+.dineplan-widget .powered-by,
+.dineplan-widget .dineplan-branding {
+  opacity: 0.6 !important;
+  font-size: 10px !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .dineplan-widget button,
+  .dineplan-widget .btn,
+  .dineplan-widget input[type="submit"],
+  .dineplan-widget input[type="button"] {
+    padding: 10px 20px !important;
+    font-size: 14px !important;
+  }
+  
+  .dineplan-widget input[type="text"],
+  .dineplan-widget input[type="email"],
+  .dineplan-widget input[type="tel"],
+  .dineplan-widget input[type="date"],
+  .dineplan-widget input[type="time"],
+  .dineplan-widget select {
+    padding: 8px 10px !important;
+    font-size: 14px !important;
+  }
+}

@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { X } from 'lucide-react';
 
 interface ReservationModalProps {
@@ -10,6 +10,7 @@ interface ReservationModalProps {
 export default function ReservationModal({ isOpen, onClose }: ReservationModalProps) {
     const [isVisible, setIsVisible] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
+    const iframeRef = useRef<HTMLIFrameElement>(null);
 
     useEffect(() => {
         if (isOpen) {
@@ -36,6 +37,198 @@ export default function ReservationModal({ isOpen, onClose }: ReservationModalPr
                 window.scrollTo(0, parseInt(scrollY || '0') * -1);
             }
         }
+    }, [isOpen]);
+
+    // Listen for booking completion events
+    useEffect(() => {
+        if (!isOpen) return;
+
+        let previousIframeSrc = '';
+
+        // Listen for postMessage events from the iframe
+        const handleMessage = (event: MessageEvent) => {
+            // Check if message is from Dineplan domain
+            if (event.origin.includes('dineplan.com')) {
+                // Check for booking completion indicators
+                const messageData = event.data;
+                if (
+                    typeof messageData === 'string' && (
+                        messageData.includes('booking') ||
+                        messageData.includes('success') ||
+                        messageData.includes('confirmed') ||
+                        messageData.includes('booked')
+                    ) ||
+                    (typeof messageData === 'object' && (
+                        messageData.type === 'booking-complete' ||
+                        messageData.bookingComplete ||
+                        messageData.success ||
+                        messageData.event === 'booking-complete'
+                    ))
+                ) {
+                    handleClose();
+                }
+            }
+        };
+
+        // Listen for iframe navigation changes (booking success might redirect)
+        const checkIframeNavigation = () => {
+            if (iframeRef.current) {
+                try {
+                    const currentSrc = iframeRef.current.src;
+                    // Check if URL changed and contains success indicators
+                    if (currentSrc !== previousIframeSrc) {
+                        previousIframeSrc = currentSrc;
+                        if (
+                            currentSrc.includes('success') ||
+                            currentSrc.includes('confirmed') ||
+                            currentSrc.includes('thank') ||
+                            currentSrc.includes('complete') ||
+                            currentSrc.includes('booked')
+                        ) {
+                            handleClose();
+                        }
+                    }
+                } catch (e) {
+                    // Cross-origin restrictions - can't access iframe content
+                }
+            }
+        };
+
+        // Inject script to intercept button clicks via postMessage
+        const injectClickListener = () => {
+            // Create a script that listens for the booking button and sends postMessage
+            const script = document.createElement('script');
+            script.textContent = `
+                (function() {
+                    // Listen for messages from parent window
+                    window.addEventListener('message', function(event) {
+                        if (event.data && event.data.type === 'setup-click-listener') {
+                            // Try to find and intercept the booking button
+                            const setupButtonListener = () => {
+                                const button = document.getElementById('make-booking');
+                                if (button) {
+                                    button.addEventListener('click', function() {
+                                        // Send message to parent window when button is clicked
+                                        if (window.parent) {
+                                            window.parent.postMessage({
+                                                type: 'booking-button-clicked',
+                                                buttonId: 'make-booking'
+                                            }, '*');
+                                        }
+                                    }, true);
+                                } else {
+                                    // Button not found yet, try again after a short delay
+                                    setTimeout(setupButtonListener, 500);
+                                }
+                            };
+                            setupButtonListener();
+                        }
+                    });
+
+                    // Also try to set up listener immediately if button exists
+                    setTimeout(() => {
+                        const button = document.getElementById('make-booking');
+                        if (button) {
+                            button.addEventListener('click', function() {
+                                if (window.parent) {
+                                    window.parent.postMessage({
+                                        type: 'booking-button-clicked',
+                                        buttonId: 'make-booking'
+                                    }, '*');
+                                }
+                            }, true);
+                        }
+                    }, 1000);
+                })();
+            `;
+            
+            // Try to inject into iframe (won't work due to CORS, but try anyway)
+            try {
+                if (iframeRef.current?.contentWindow?.document) {
+                    iframeRef.current.contentWindow.document.body.appendChild(script);
+                }
+            } catch (e) {
+                // Can't inject due to cross-origin restrictions
+            }
+        };
+
+        // Listen for postMessage events
+        window.addEventListener('message', handleMessage);
+
+        // Enhanced message handler for booking button clicks
+        const handleBookingClick = (event: MessageEvent) => {
+            if (event.data && event.data.type === 'booking-button-clicked') {
+                // Close modal after a short delay to allow booking to process
+                setTimeout(() => {
+                    handleClose();
+                }, 1500);
+            }
+        };
+        window.addEventListener('message', handleBookingClick);
+
+        // Listen for custom booking complete event from global script
+        const handleBookingComplete = () => {
+            setTimeout(() => {
+                handleClose();
+            }, 1500);
+        };
+        window.addEventListener('dineplan-booking-complete', handleBookingComplete);
+
+        // Check iframe navigation periodically
+        const navigationInterval = setInterval(checkIframeNavigation, 500);
+
+        // Also listen for iframe load events
+        const iframe = iframeRef.current;
+        if (iframe) {
+            iframe.addEventListener('load', checkIframeNavigation);
+            // Try to inject script after iframe loads
+            iframe.addEventListener('load', injectClickListener);
+        }
+
+        // Try to inject script immediately
+        setTimeout(injectClickListener, 2000);
+
+        return () => {
+            window.removeEventListener('message', handleMessage);
+            window.removeEventListener('message', handleBookingClick);
+            window.removeEventListener('dineplan-booking-complete', handleBookingComplete);
+            clearInterval(navigationInterval);
+            if (iframe) {
+                iframe.removeEventListener('load', checkIframeNavigation);
+                iframe.removeEventListener('load', injectClickListener);
+            }
+        };
+    }, [isOpen]);
+
+    // Send message to iframe to set up click listener on button
+    useEffect(() => {
+        if (!isOpen || !iframeRef.current) return;
+
+        const trySetupListener = () => {
+            try {
+                const iframe = iframeRef.current;
+                if (!iframe || !iframe.contentWindow) return;
+
+                // Send message to iframe to set up click listener
+                iframe.contentWindow.postMessage({
+                    type: 'setup-click-listener',
+                    buttonId: 'make-booking'
+                }, '*');
+            } catch (e) {
+                // Cross-origin restrictions
+            }
+        };
+
+        // Try multiple times as iframe content loads
+        const timer1 = setTimeout(trySetupListener, 1000);
+        const timer2 = setTimeout(trySetupListener, 3000);
+        const timer3 = setTimeout(trySetupListener, 5000);
+
+        return () => {
+            clearTimeout(timer1);
+            clearTimeout(timer2);
+            clearTimeout(timer3);
+        };
     }, [isOpen]);
 
     // Cleanup on unmount
@@ -91,43 +284,39 @@ export default function ReservationModal({ isOpen, onClose }: ReservationModalPr
                 {/* Content */}
                 <div className="p-4 sm:p-6">
                     {/* Booking Widget Container */}
-                    <div className="w-full border border-gray-200 rounded-lg overflow-hidden">
+                    <div className="w-full flex justify-center items-center">
                         <div 
                             className="dineplan-widget" 
                             data-key="P3S5Wh6b" 
-                            style={{
-                                width: '100%',
-                                maxWidth: '600px',
-                                margin: '0 auto',
-                                border: '1px solid #bfbfbf',
-                                borderRadius: '8px',
-                                overflow: 'hidden'
-                            }}
                         >
                             <iframe 
-                                className="dp-dframe w-full h-[500px] sm:h-[430px] border-none block" 
+                                ref={iframeRef}
+                                className="dp-dframe w-full h-[500px] sm:h-[430px] border-none block rounded-lg" 
                                 src="https://account.dineplan.com/widget/v3/P3S5Wh6b" 
                                 scrolling="no" 
                                 title="De Vleispaleis Reservation Widget"
-                            />
-                            <div 
-                                className="dp-widget-footer" 
-                                style={{
-                                    backgroundColor: '#f5f5f5',
-                                    textAlign: 'center',
-                                    padding: '8px',
-                                    fontSize: '10px',
-                                    color: '#ccc'
+                                onLoad={() => {
+                                    // Try to set up click listener when iframe loads
+                                    setTimeout(() => {
+                                        try {
+                                            if (iframeRef.current?.contentWindow) {
+                                                // Send message to iframe to intercept button clicks
+                                                iframeRef.current.contentWindow.postMessage({
+                                                    type: 'setup-click-listener',
+                                                    buttonId: 'make-booking'
+                                                }, '*');
+                                            }
+                                        } catch (e) {
+                                            // Cross-origin restrictions
+                                        }
+                                    }, 1000);
                                 }}
-                            >
+                            />
+                            <div className="dp-widget-footer">
                                 <a 
                                     href="https://www.dineplan.com/restaurants/de-vleispaleis" 
                                     target="_blank" 
                                     rel="noopener noreferrer"
-                                    style={{
-                                        color: '#ccc',
-                                        textDecoration: 'none'
-                                    }}
                                 >
                                     Powered by Dineplan
                                 </a>

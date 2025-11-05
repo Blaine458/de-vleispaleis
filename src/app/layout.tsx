@@ -43,6 +43,40 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/vleis-logo.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <script src="https://public-prod.dineplan.com/widget/dineplan.widget.min.js">
+</script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                // Listen for messages from Dineplan iframe
+                window.addEventListener('message', function(event) {
+                  // Check if message is from Dineplan
+                  if (event.origin.includes('dineplan.com')) {
+                    // Forward booking events to the reservation modal
+                    if (event.data && (
+                      (typeof event.data === 'string' && (
+                        event.data.includes('booking') ||
+                        event.data.includes('success') ||
+                        event.data.includes('confirmed')
+                      )) ||
+                      (typeof event.data === 'object' && (
+                        event.data.type === 'booking-complete' ||
+                        event.data.bookingComplete ||
+                        event.data.success
+                      ))
+                    )) {
+                      // Dispatch custom event that modal can listen to
+                      window.dispatchEvent(new CustomEvent('dineplan-booking-complete', {
+                        detail: event.data
+                      }));
+                    }
+                  }
+                });
+              })();
+            `,
+          }}
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
