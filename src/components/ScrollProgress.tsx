@@ -2,18 +2,26 @@
 
 import { useEffect, useState } from "react"
 import { usePathname } from "next/navigation"
-import { useLenis } from "lenis/react"
+// Removed unused Lenis import - LenisProvider is disabled
 
 export default function ScrollProgress() {
   const [scrollProgress, setScrollProgress] = useState(0)
+  const [isMounted, setIsMounted] = useState(false)
   const pathname = usePathname()
-  const lenis = useLenis()
+
+  // Ensure component only renders on client to prevent hydration mismatch
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
 
   useEffect(() => {
+    // Only run on client after mount
+    if (!isMounted) return
+
     const updateScrollProgress = () => {
       // Simple, reliable calculation
-      const scrollTop = lenis ? lenis.scroll : (window.scrollY || document.documentElement.scrollTop || 0)
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight
+      const scrollTop = typeof window !== 'undefined' ? (window.scrollY || document.documentElement.scrollTop || 0) : 0
+      const docHeight = typeof window !== 'undefined' ? (document.documentElement.scrollHeight - window.innerHeight) : 0
       const progress = docHeight > 0 ? Math.min(100, Math.max(0, (scrollTop / docHeight) * 100)) : 0
       
       setScrollProgress(progress)
@@ -25,14 +33,8 @@ export default function ScrollProgress() {
     // Initial calculation
     setTimeout(updateScrollProgress, 100)
 
-    // Use Lenis scroll event if available, otherwise fallback to window scroll
-    if (lenis) {
-      lenis.on('scroll', updateScrollProgress)
-      return () => {
-        lenis.off('scroll', updateScrollProgress)
-      }
-    } else {
-      // Fallback to window scroll listener
+    // Use window scroll listener (Lenis is disabled)
+    if (typeof window !== 'undefined') {
       window.addEventListener("scroll", updateScrollProgress, { passive: true })
       window.addEventListener("resize", updateScrollProgress, { passive: true })
 
@@ -41,14 +43,16 @@ export default function ScrollProgress() {
         window.removeEventListener("resize", updateScrollProgress)
       }
     }
-  }, [pathname, lenis]) // Re-run when pathname or lenis changes
+  }, [pathname, isMounted]) // Re-run when pathname changes
 
+  // Always render the same structure to prevent hydration mismatch
+  // The width will update after mount via useEffect
   return (
     <div className="fixed left-0 w-full h-1 z-[9999] bg-[#223534] top-0">
       <div 
         className="h-full bg-[#82212a]"
         style={{ 
-          width: `${scrollProgress}%`,
+          width: isMounted ? `${scrollProgress}%` : '0%',
         }}
       />
     </div>

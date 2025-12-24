@@ -27,9 +27,12 @@ export default function MainGallery() {
                 onClick={handlePreviousImage} 
                 className="absolute left-2 sm:left-4 md:left-[15vw] top-1/2 transform -translate-y-1/2 z-40 text-white bg-[#82212a] hover:bg-[#64161d] rounded-full flex items-center justify-center transition-all"
                 style={{ 
-                    width: 'clamp(2.5rem, 3rem, 3.5rem)', 
-                    height: 'clamp(2.5rem, 3rem, 3.5rem)' 
+                    width: 'clamp(44px, 3rem, 3.5rem)', 
+                    height: 'clamp(44px, 3rem, 3.5rem)',
+                    minWidth: '44px',
+                    minHeight: '44px'
                 }}
+                aria-label="Previous image"
             >
                 <ChevronLeft size={20} className="sm:w-6 sm:h-6" />
             </button>
@@ -37,7 +40,6 @@ export default function MainGallery() {
             <div className="flex items-center justify-center h-full w-full px-4 sm:px-8 md:px-16">
                 <div className="relative w-full max-w-4xl">
                     <div className="flex items-center justify-center h-full">
-                      
                         {images.map((image, index) => {
                             const isActive = index === currentImageIndex;
                             const isPrevious = index === (currentImageIndex === 0 ? images.length - 1 : currentImageIndex - 1);
@@ -59,11 +61,15 @@ export default function MainGallery() {
                                         alt={image.alt}
                                         width={800}
                                         height={600}
-                                        priority
+                                        // Only first image needs priority
+                                        priority={index === 0}
+                                        loading={index === 0 ? undefined : "lazy"}
+                                        quality={85}
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 800px"
                                         className="rounded-xl object-cover"
                                         style={{ 
-                                            height: 'clamp(40vh, 50vh, 60vh)', 
-                                            maxHeight: 'clamp(250px, 350px, 400px)',
+                                            height: 'clamp(80vh, 50vh, 60vh)', 
+                                            maxHeight: 'clamp(600px, 350px, 400px)',
                                             width: 'auto', 
                                             maxWidth: 'clamp(60vw, 80vw, 90vw)',
                                         }}
@@ -79,9 +85,12 @@ export default function MainGallery() {
                 onClick={handleNextImage} 
                 className="absolute right-2 sm:right-4 md:right-[15vw] top-1/2 transform -translate-y-1/2 z-40 text-white bg-[#82212a] hover:bg-[#64161d] rounded-full flex items-center justify-center transition-all"
                 style={{ 
-                    width: 'clamp(2.5rem, 3rem, 3.5rem)', 
-                    height: 'clamp(2.5rem, 3rem, 3.5rem)' 
+                    width: 'clamp(44px, 3rem, 3.5rem)', 
+                    height: 'clamp(44px, 3rem, 3.5rem)',
+                    minWidth: '44px',
+                    minHeight: '44px'
                 }}
+                aria-label="Next image"
             >
                 <ChevronRight size={20} className="sm:w-6 sm:h-6" />
             </button>

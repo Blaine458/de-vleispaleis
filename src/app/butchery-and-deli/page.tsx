@@ -11,7 +11,7 @@ export default function ButcheryAndDeli() {
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[6rem] leading-none font-trajan font-bold text-[#fffae7] z-20 break-words">BUTCHERY & DELI</h1>
                 </div>
                 <div className="bg-black/50 absolute top-0 left-0 right-0 h-full w-full z-10"></div>
-                <Image priority src="/VleisPaleis-29.webp" alt="Butchery and Deli" width={1920} height={1080} className="absolute top-0 left-0 right-0 z-0 min-h-[80vh] sm:min-h-[90vh] lg:min-h-[100vh] object-cover" />
+                <Image priority src="/VleisPaleis-29.webp" alt="Butchery and Deli" width={1920} height={1080} className="absolute top-0 left-0 min-w-[100vw] right-0 z-0 min-h-[80vh] sm:min-h-[90vh] lg:min-h-[100vh] object-cover" />
             </section>
             <section className="flex flex-col lg:flex-row gap-8 h-fit bg-[#fffae7] mt-[80vh] md:mt-[100vh] items-center relative text-[#223534] px-4 sm:px-8 lg:px-30 pt-20 sm:pt-32 lg:pt-40">
                 <div className="flex flex-col gap-4 w-full lg:w-auto">

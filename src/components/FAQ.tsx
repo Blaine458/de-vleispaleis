@@ -46,7 +46,7 @@
 
         return (
             <div className="flex flex-col lg:flex-row gap-8 h-fit bg-[#fffae7] text-[#223534] justify-between items-start px-4 sm:px-8 lg:px-30 pb-20 lg:pb-40">
-                <h1 className="text-6xl sm:text-6xl lg:text-8xl font-trajan font-bold text-center lg:text-left w-full lg:w-auto">FAQ</h1>
+                <h2 className="text-6xl sm:text-6xl lg:text-8xl font-trajan font-bold text-center lg:text-left w-full lg:w-auto">FAQ</h2>
                 <div className="flex flex-col w-full lg:w-[50%]">
                     {faqData.map((item, index) => (
                         <div key={index} className="border-b border-[#223534]/20">

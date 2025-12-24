@@ -39,6 +39,9 @@ export default function Reviews() {
 
     // Detect touch device - improved detection
     useEffect(() => {
+        // Only run on client
+        if (typeof window === 'undefined') return;
+
         const checkTouchDevice = () => {
             // More comprehensive touch detection
             const hasTouch = 'ontouchstart' in window || 
@@ -123,7 +126,7 @@ export default function Reviews() {
     if (isTouchDevice === null) {
         return (
             <>
-            <h1 className="text-6xl md:text-5xl lg:text-6xl w-full px-4 sm:px-8 lg:px-10 font-trajan text-left font-semibold mb-6 sm:mb-8 lg:mb-10">What Our Guests Say</h1>
+            <h2 className="text-6xl md:text-5xl lg:text-6xl w-full px-4 sm:px-8 lg:px-10 font-trajan text-left font-semibold mb-6 sm:mb-8 lg:mb-10">What Our Guests Say</h2>
             <div className="flex overflow-x-hidden min-h-fit relative px-4 sm:px-8 lg:px-10">
                 <div className="bg-gradient-to-r from-[#fffae7] to-transparent absolute left-0 top-0 min-h-full w-[10vw] sm:w-[15vw] lg:w-[20vw] z-40"></div>
                 <div className="flex w-full justify-center">
@@ -143,7 +146,7 @@ export default function Reviews() {
 
     return (
         <>
-        <h1 className="text-6xl sm:text-4xl md:text-5xl lg:text-6xl w-full px-8 sm:px-8 lg:px-10 font-trajan text-left font-semibold mb-6 sm:mb-8 lg:mb-10">What Our Guests Say</h1>
+        <h2 className="text-6xl sm:text-4xl md:text-5xl lg:text-6xl w-full px-8 sm:px-8 lg:px-10 font-trajan text-left font-semibold mb-6 sm:mb-8 lg:mb-10">What Our Guests Say</h2>
         
         {isTouchDevice ? (
             // Touch device: Simple swipe carousel with dots - separate containers

@@ -7,6 +7,7 @@ export default function Popup() {
     const [isClosing, setIsClosing] = useState(false);
     const [hasShown, setHasShown] = useState(false);
     const [isReservationModalOpen, setIsReservationModalOpen] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
     
     const openModal = () => setIsReservationModalOpen(true);
     const closeReservationModal = () => {
@@ -15,24 +16,34 @@ export default function Popup() {
         handleClose();
     };
 
+    // Ensure component only renders on client to prevent hydration mismatch
     useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
+    useEffect(() => {
+        // Only run on client after mount
+        if (!isMounted) return;
+
         // Check if popup has been shown before in this session
-        const hasShownBefore = sessionStorage.getItem('popupShown');
+        const hasShownBefore = typeof window !== 'undefined' && sessionStorage.getItem('popupShown');
         
         if (!hasShownBefore) {
             // Longer delay on mobile to avoid interfering with initial page load
-            const isMobile = window.innerWidth < 1024;
+            const isMobile = typeof window !== 'undefined' && window.innerWidth < 1024;
             const delay = isMobile ? 8000 : 5000; // 8 seconds on mobile, 5 on desktop
             
             const timer = setTimeout(() => {
                 setIsVisible(true);
                 setHasShown(true);
-                sessionStorage.setItem('popupShown', 'true');
+                if (typeof window !== 'undefined') {
+                    sessionStorage.setItem('popupShown', 'true');
+                }
             }, delay);
 
             return () => clearTimeout(timer);
         }
-    }, []);
+    }, [isMounted]);
 
     const handleClose = () => {
         setIsClosing(true);
@@ -55,7 +66,8 @@ export default function Popup() {
         }
     };
 
-    if (!isVisible) return null;
+    // Don't render until mounted to prevent hydration mismatch
+    if (!isMounted || !isVisible) return null;
 
     return (
         <>

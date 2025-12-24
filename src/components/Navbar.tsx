@@ -1,18 +1,23 @@
 "use client";
 import Image from "next/image";
-import PrimaryButton from "./PrimaryButton";
 import Link from "next/link";
+// Removed unused PrimaryButton import
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { useLenis } from "lenis/react";
+// Removed unused Lenis import - LenisProvider is disabled
 import { Menu, X, ChevronRight } from "lucide-react";
-import ReservationModal from "./ReservationModal";
+import dynamic from 'next/dynamic';
+
+// Lazy load ReservationModal - only needed when user clicks
+const ReservationModal = dynamic(() => import('./ReservationModal'), {
+  ssr: false,
+});
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const lenis = useLenis();
+  // Removed unused Lenis - LenisProvider is disabled
   const pathname = usePathname();
   const [isReservationModalOpen, setIsReservationModalOpen] = useState(false);
   
@@ -34,7 +39,7 @@ export default function Navbar() {
         setIsScrolled(true);
       } else {
         // Simple scroll position check - just check if scrolled past 100px
-        const scrollTop = lenis ? lenis.scroll : window.scrollY;
+        const scrollTop = window.scrollY;
         setIsScrolled(scrollTop > 100);
       }
       
@@ -47,20 +52,12 @@ export default function Navbar() {
     // Initial call to set correct state on page load
     handleScroll();
     
-    // Use Lenis scroll event if available, otherwise fallback to window scroll
-    if (lenis) {
-      lenis.on('scroll', handleScroll);
-      return () => {
-        lenis.off('scroll', handleScroll);
-      };
-    } else {
-      // Fallback to window scroll listener
-      window.addEventListener('scroll', handleScroll, { passive: true });
-      return () => {
-        window.removeEventListener('scroll', handleScroll);
-      };
-    }
-  }, [pathname, isMobileMenuOpen, lenis]);
+    // Use window scroll listener (Lenis is disabled)
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [pathname, isMobileMenuOpen]);
 
 
   const toggleMobileMenu = () => {
@@ -87,22 +84,14 @@ export default function Navbar() {
               // Only prevent default if we're already on the home page
               if (window.location.pathname === '/') {
                 e.preventDefault();
-                if (lenis) {
-                  lenis.scrollTo(0, { duration: 1 });
-                } else {
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }
+                window.scrollTo({ top: 0, behavior: 'smooth' });
               }
               // If not on home page, let the default navigation happen
               // and scroll to top after navigation
               else {
                 // Small delay to allow navigation to complete
                 setTimeout(() => {
-                  if (lenis) {
-                    lenis.scrollTo(0, { duration: 1 });
-                  } else {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                  }
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
                 }, 100);
               }
             }}
@@ -118,17 +107,17 @@ export default function Navbar() {
               isScrolled ? 'text-gray-800' : 'text-white'
             }`}>
                 <li>
-                  <Link href="/butchery-and-deli" className="px-4 py-2 cursor-pointer hover:opacity-80 transition-opacity duration-200">Butchery and Deli</Link>
+                  <Link href="/butchery-and-deli" className="px-4 py-3 min-h-[44px] flex items-center cursor-pointer hover:opacity-80 transition-opacity duration-200">Butchery and Deli</Link>
                 </li>
                 <li>
-                  <Link href="/gallery" className="px-4 py-2 cursor-pointer hover:opacity-80 transition-opacity duration-200">Gallery</Link>
+                  <Link href="/gallery" className="px-4 py-3 min-h-[44px] flex items-center cursor-pointer hover:opacity-80 transition-opacity duration-200">Gallery</Link>
                 </li>
                 <li>
                   <a 
                     href="/vleispaleis-menu.pdf" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="px-4 py-2 cursor-pointer hover:opacity-80 transition-opacity duration-200"
+                    className="px-4 py-3 min-h-[44px] flex items-center cursor-pointer hover:opacity-80 transition-opacity duration-200"
                   >
                     Menu
                   </a>
@@ -138,7 +127,7 @@ export default function Navbar() {
         <div className="flex items-center gap-2">
           <button 
             onClick={openReservationModal}
-            className="border-2 cursor-pointer rounded-full px-6 py-2 z-[9999] transition-colors"
+            className="border-2 cursor-pointer rounded-full px-6 py-3 min-h-[44px] z-[9999] transition-colors"
             style={{
               borderColor: isScrolled ? '#223534' : 'white',
               color: isScrolled ? '#223534' : 'white',
@@ -171,18 +160,10 @@ export default function Navbar() {
           onClick={(e) => {
             if (window.location.pathname === '/') {
               e.preventDefault();
-              if (lenis) {
-                lenis.scrollTo(0, { duration: 1 });
-              } else {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }
+              window.scrollTo({ top: 0, behavior: 'smooth' });
             } else {
               setTimeout(() => {
-                if (lenis) {
-                  lenis.scrollTo(0, { duration: 1 });
-                } else {
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }
+                window.scrollTo({ top: 0, behavior: 'smooth' });
               }, 100);
             }
             closeMobileMenu();
@@ -208,9 +189,10 @@ export default function Navbar() {
         {/* Mobile Menu Button */}
         <button
           onClick={toggleMobileMenu}
-          className={`p-2 rounded-lg transition-all duration-200 ${
+          className={`p-3 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg transition-all duration-200 ${
             isScrolled || isMobileMenuOpen ? 'text-gray-800 hover:bg-gray-100' : 'text-white hover:bg-white/10'
           }`}
+          aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
         >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>

@@ -1,6 +1,6 @@
 import Image from "next/image";
-import PrimaryButton from "./PrimaryButton";
 import Link from "next/link";
+// Removed unused PrimaryButton import
 
 export default function MenusSection() {
     return (
@@ -12,7 +12,8 @@ export default function MenusSection() {
                     alt="Restaurant interior with elegant dining setup"
                     fill
                     className="object-cover"
-                    priority
+                    loading="lazy"
+                    quality={85}
                 />
                 <div className="absolute inset-0 bg-black/60"></div>
             </div>
@@ -38,10 +39,14 @@ export default function MenusSection() {
                             <p className="text-lg text-[#223534] mb-auto leading-relaxed font-light">
                                 Premium AAA grade steaks, fresh seafood, and signature dishes crafted by our master chefs.
                             </p>
-                            <button className="px-8 py-3 border-[#82212a] border-2 rounded-full hover:text-white hover:bg-[#82212a] text-[#82212a] transition-all duration-300 font-medium tracking-wide uppercase text-sm mt-8">
-                               
-                               <Link target="_blank" rel="noopener noreferrer" href="/vleispaleis-menu.pdf">View Menu</Link>
-                            </button>
+                            <Link 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                href="/vleispaleis-menu.pdf"
+                                className="inline-block px-8 py-4 min-h-[44px] border-[#82212a] border-2 rounded-full hover:text-white hover:bg-[#82212a] text-[#82212a] transition-all duration-300 font-medium tracking-wide uppercase text-sm mt-8 text-center"
+                            >
+                                View Menu
+                            </Link>
                         </div>
                     </div>
 
@@ -56,9 +61,14 @@ export default function MenusSection() {
                             <p className="text-lg text-[#223534] mb-auto leading-relaxed font-light">
                                 Curated collection of South African wines and international selections to complement your meal.
                             </p>
-                            <button className="px-8 py-3 border-[#82212a] border-2 rounded-full hover:text-white hover:bg-[#82212a] text-[#82212a] transition-all duration-300 font-medium tracking-wide uppercase text-sm mt-8">
-                                <Link target="_blank" rel="noopener noreferrer" href="/vleispaleis-menu.pdf">View Wines</Link>
-                            </button>
+                            <Link 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                href="/vleispaleis-menu.pdf"
+                                className="inline-block px-8 py-4 min-h-[44px] border-[#82212a] border-2 rounded-full hover:text-white hover:bg-[#82212a] text-[#82212a] transition-all duration-300 font-medium tracking-wide uppercase text-sm mt-8 text-center"
+                            >
+                                View Wines
+                            </Link>
                         </div>
                     </div>
 
@@ -73,9 +83,14 @@ export default function MenusSection() {
                             <p className="text-lg text-[#223534] mb-auto leading-relaxed font-light">
                                 Light and flavorful options perfect for a midday meal in the heart of Stellenbosch.
                             </p>
-                            <button className="px-8 py-3 border-[#82212a] border-2 rounded-full hover:text-white hover:bg-[#82212a] text-[#82212a] transition-all duration-300 font-medium tracking-wide uppercase text-sm mt-8">
-                                <Link target="_blank" rel="noopener noreferrer" href="/vleispaleis-menu.pdf">View Lunch</Link>
-                            </button>
+                            <Link 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                href="/vleispaleis-menu.pdf"
+                                className="inline-block px-8 py-4 min-h-[44px] border-[#82212a] border-2 rounded-full hover:text-white hover:bg-[#82212a] text-[#82212a] transition-all duration-300 font-medium tracking-wide uppercase text-sm mt-8 text-center"
+                            >
+                                View Lunch
+                            </Link>
                         </div>
                     </div>
                 </div>
