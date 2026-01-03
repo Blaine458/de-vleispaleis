@@ -82,7 +82,7 @@ export default function Footer() {
             </div>
             <div className="flex flex-col sm:flex-row w-screen h-full bg-[#223534] text-[#fffae7] items-center justify-between pr-4 sm:pr-30 pl-4 sm:pl-10 relative py-4 sm:py-0">
                 <p className="text-xs sm:text-sm font-extralight text-center sm:text-left mb-2 sm:mb-0">© {new Date().getFullYear()} De Vleispaleis. All rights reserved.</p>
-                <p className="text-xs sm:text-sm font-extralight text-center sm:text-right mb-4 sm:mb-0">Crafted by <Link href="https://www.vleispaleis.co.za" className="hover:opacity-70 transition-opacity font-bold">BitLoom</Link></p>
+                <p className="text-xs sm:text-sm font-extralight text-center sm:text-right mb-4 sm:mb-0">Crafted by <Link href="https://www.bitloom.co.za" className="hover:opacity-70 transition-opacity font-bold">BitLoom</Link></p>
                 <div className="hidden sm:flex items-center justify-center absolute top-[50%] left-[50%] translate-x-[-50%] z-50 translate-y-[-50%]">
                     <Image src="/vleis-logo.png" alt="vleis-logo" width={60} height={60} className="sm:w-20 sm:h-20" />
                     <span className="text-lg sm:text-2xl font-trajan font-bold">De Vleispaleis</span>

@@ -199,7 +199,7 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu Sheet */}
-      <div className={`lg:hidden fixed top-16 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
+      <div className={`lg:hidden fixed top-16 left-0 right-0 z-40 transition-all duration-300 ease-in-out ${
         isMobileMenuOpen 
           ? 'translate-y-0 opacity-100' 
           : '-translate-y-full opacity-0 pointer-events-none'
