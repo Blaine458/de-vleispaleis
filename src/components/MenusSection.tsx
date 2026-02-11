@@ -33,7 +33,7 @@ export default function MenusSection() {
                         <div className="absolute inset-0 rounded-xl bg-[#fffae7]"></div>
                         <div className="relative p-12 text-center transition-all duration-500 group-hover:scale-105 flex flex-col h-full">
                             <div className="mb-8">
-                                <h3 className="text-3xl font-trajan font-bold mb-6 text-[#223534]">Dinner Menu</h3>
+                                <h3 className="text-3xl font-trajan font-bold mb-6 text-[#223534]">Food Menu</h3>
                                 <div className="w-16 h-px bg-gradient-to-r from-transparent via-[#82212a]/50 to-transparent mx-auto mb-6"></div>
                             </div>
                             <p className="text-lg text-[#223534] mb-auto leading-relaxed font-light">
@@ -72,16 +72,16 @@ export default function MenusSection() {
                         </div>
                     </div>
 
-                    {/* Lunch Menu */}
+                    {/* Drinks Menu */}
                     <div className="group relative overflow-hidden">
                         <div className="absolute inset-0 rounded-xl bg-[#fffae7]"></div>
                         <div className="relative p-12 text-center transition-all duration-500 group-hover:scale-105 flex flex-col h-full">
                             <div className="mb-8">
-                                <h3 className="text-3xl font-trajan font-bold mb-6 text-[#223534]">Lunch Menu</h3>
+                                <h3 className="text-3xl font-trajan font-bold mb-6 text-[#223534]">Drinks Menu</h3>
                                 <div className="w-16 h-px bg-gradient-to-r from-transparent via-[#82212a]/50 to-transparent mx-auto mb-6"></div>
                             </div>
                             <p className="text-lg text-[#223534] mb-auto leading-relaxed font-light">
-                                Light and flavorful options perfect for a midday meal in the heart of Stellenbosch.
+                                An extensive range of cocktails, spirits, craft beers, and non-alcoholic refreshments to suit every taste.
                             </p>
                             <Link 
                                 target="_blank" 
@@ -89,7 +89,7 @@ export default function MenusSection() {
                                 href="/vleispaleis-menu.pdf"
                                 className="inline-block px-8 py-4 min-h-[44px] border-[#82212a] border-2 rounded-full hover:text-white hover:bg-[#82212a] text-[#82212a] transition-all duration-300 font-medium tracking-wide uppercase text-sm mt-8 text-center"
                             >
-                                View Lunch
+                                View Drinks
                             </Link>
                         </div>
                     </div>

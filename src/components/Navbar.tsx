@@ -232,7 +232,7 @@ export default function Navbar() {
                 <ChevronRight size={20} className="text-[#82212a]/60" />
               </Link>
               <a 
-                href="/vleispaleis-menu.pdf" 
+                href="/De Vleispaleis Menu.pdf" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 onClick={closeMobileMenu}
