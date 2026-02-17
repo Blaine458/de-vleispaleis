@@ -22,7 +22,11 @@ export default function MainGallery() {
     };
 
     return (
+<<<<<<< HEAD
         <div className="relative w-full overflow-hidden" style={{ height: 'clamp(50vh, 70vh, 80vh)' }}>
+=======
+        <div className="relative w-full" style={{ height: 'clamp(50vh, 60vh, 70vh)' }}>
+>>>>>>> 2c48ac1f2c1b6f7c53ee75c3e0b0edd3f565581f
             <button 
                 onClick={handlePreviousImage} 
                 className="absolute left-2 sm:left-4 md:left-[15vw] top-1/2 transform -translate-y-1/2 z-40 text-white bg-[#82212a] hover:bg-[#64161d] rounded-full flex items-center justify-center transition-all"
