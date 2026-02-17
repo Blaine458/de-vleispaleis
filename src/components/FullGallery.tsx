@@ -1,25 +1,41 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-export default function MainGallery() {
+export default function FullGallery() {
+    const [mounted, setMounted] = useState(false);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
-    
-    const images = [
-        { src: "/VleisPaleis-10.webp", alt: "Restaurant interior" },
-        { src: "/VleisPaleis-7.webp", alt: "Restaurant dining" },
-        { src: "/VleisPaleis-8.webp", alt: "Restaurant atmosphere" },
-        { src: "/VleisPaleis-9.webp", alt: "Restaurant atmosphere" }
-    ];
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    const images = Array.from({ length: 16 }, (_, i) => ({
+        src: `/vleispaleis-site-images/${100 + i}.jpg`,
+        alt: `De Vleispaleis ${100 + i}`,
+    }));
 
     const handlePreviousImage = () => {
+
         setCurrentImageIndex(prev => prev === 0 ? images.length - 1 : prev - 1);
     };
 
     const handleNextImage = () => {
         setCurrentImageIndex(prev => prev === images.length - 1 ? 0 : prev + 1);
     };
+
+    if (!mounted) {
+        return (
+            <div
+                className="relative w-full overflow-hidden bg-[#82212a]/5 rounded-xl flex items-center justify-center"
+                style={{ height: 'clamp(50vh, 70vh, 80vh)' }}
+                aria-hidden
+            >
+                <span className="text-[#223534]/40 text-sm font-light">Loading gallery…</span>
+            </div>
+        );
+    }
 
     return (
         <div className="relative w-full overflow-hidden" style={{ height: 'clamp(50vh, 70vh, 80vh)' }}>
@@ -58,7 +74,7 @@ export default function MainGallery() {
                                         alt={image.alt}
                                         width={800}
                                         height={600}
-                                        priority
+                                        priority={index === 0}
                                         className="rounded-xl object-cover"
                                         style={{ 
                                             height: 'clamp(40vh, 60vh, 70vh)', 

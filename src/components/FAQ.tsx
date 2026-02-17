@@ -8,23 +8,19 @@
         const faqData = [
             {
                 question: "What are your operating hours?",
-                answer: "We are open Tuesday through Sunday from 5:30 PM to 10:00 PM. We are closed on Mondays for staff rest and preparation."
+                answer: "We are open Monday through Sunday from 12:00PM to 4:00PM (Lunch) and 6:00PM to 10:00PM (Dinner)."
             },
             {
                 question: "Do you take reservations?",
-                answer: "Yes, we highly recommend making reservations, especially for weekend dining. You can book online through our website or call us directly."
+                answer: "Yes, we highly recommend making reservations, especially for weekend dining. You can book online through our Dineplan, Google or in the top navigation bar of our website."
             },
             {
                 question: "Do you accommodate dietary restrictions?",
-                answer: "Absolutely! We offer vegetarian, vegan, and gluten-free options. Please inform us of any dietary requirements when making your reservation."
-            },
-            {
-                question: "What is your dress code?",
-                answer: "We maintain a smart casual dress code. While we don't require formal attire, we ask guests to dress elegantly to match our sophisticated atmosphere."
+                answer: "Absolutely! We offer vegetarian and vegan options. Please inform us of any dietary requirements when making your reservation."
             },
             {
                 question: "Do you have parking available?",
-                answer: "Yes, we have complimentary valet parking available for all our guests. Simply drive up to our entrance and our staff will assist you."
+                answer: "Parking on Dorp Street is somewhat limited, particularly during busy times, but guests are often able to find additional space on nearby Mark Street. We're happy to assist with any directions or recommendations if needed."
             },
             {
                 question: "Can you host private events?",
@@ -32,7 +28,7 @@
             },
             {
                 question: "What is the best way to contact you?",
-                answer: "You can contact us by email at info@vleispaleis.co.za or call us at +27 21 123 4567. We also have an online reservation system on our website."
+                answer: "You can contact us by email at info@vleispaleis.co.za or call us at +27 21 879 2356. We also have an online reservation system on our website."
             }
         ];
 

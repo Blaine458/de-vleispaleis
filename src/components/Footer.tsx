@@ -22,13 +22,13 @@ export default function Footer() {
                     href="https://www.google.com/maps/place/De+Vleispaleis+Steakhouse/@-33.9397682,18.8532666,18z/data=!3m1!4b1!4m6!3m5!1s0x1dcdb3778fb67b97:0x39ad5edc1a045bbd!8m2!3d-33.9397682!4d18.8545541!16s%2Fg%2F11lkx9gmwg?entry=ttu&g_ep=EgoyMDI1MDkxMC4wIKXMDSoASAFQAw%3D%3D"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center h-full text-2xl sm:text-3xl lg:text-4xl rounded-t-[15vh] md:rounded-tl-[15vh] lg:rounded-tl-[15vh] lg:rounded-tr-[0] font-trajan bg-[#82212a] w-full sm:w-[50%] transition-colors cursor-pointer py-8 sm:py-0"
+                    className="flex items-center justify-center h-full text-2xl sm:text-3xl lg:text-4xl sm:rounded-tr-[0] rounded-t-[15vh] md:rounded-tl-[15vh] md:rounded-tr-[0] lg:rounded-tl-[15vh] lg:rounded-tr-[0] font-trajan bg-[#82212a] w-full sm:w-[50%] transition-colors cursor-pointer py-8 sm:py-0"
                 >
                     <span className="text-2xl sm:text-3xl lg:text-4xl font-trajan">Location</span>
                 </a>
                 <button 
                     onClick={openReservationModal}
-                    className="flex items-center justify-center h-full text-2xl sm:text-3xl lg:text-4xl md:rounded-tr-[15vh] sm:rounded-tr-[15vh] lg:rounded-tr-[15vh] rounded-tl-[0] sm:rounded-tl-[0] lg:rounded-tl-[0] font-trajan bg-[#82212a] w-full sm:w-[50%] cursor-pointer transition-colors py-8 sm:py-0"
+                    className="flex items-center justify-center h-full text-2xl sm:text-3xl lg:text-4xl sm:rounded-tr-[15vh] md:rounded-tr-[15vh] lg:rounded-tr-[15vh] rounded-tl-[0] sm:rounded-tl-[0] lg:rounded-tl-[0] font-trajan bg-[#82212a] w-full sm:w-[50%] cursor-pointer transition-colors py-8 sm:py-0"
                 >
                     <span className="text-2xl sm:text-3xl lg:text-4xl font-trajan">Reservation</span>
                 </button>
@@ -81,7 +81,7 @@ export default function Footer() {
                 </div>
             </div>
             <div className="flex flex-col sm:flex-row w-screen h-full bg-[#223534] text-[#fffae7] items-center justify-between pr-4 sm:pr-30 pl-4 sm:pl-10 relative py-4 sm:py-0">
-                <p className="text-xs sm:text-sm font-extralight text-center sm:text-left mb-2 sm:mb-0">© {new Date().getFullYear()} De Vleispaleis. All rights reserved.</p>
+                <p className="text-xs sm:text-sm font-extralight text-center sm:text-left mb-2 sm:mb-0">© 2026 De Vleispaleis. All rights reserved.</p>
                 <p className="text-xs sm:text-sm font-extralight text-center sm:text-right mb-4 sm:mb-0">Crafted by <Link href="https://www.bitloom.co.za" className="hover:opacity-70 transition-opacity font-bold">BitLoom</Link></p>
                 <div className="hidden sm:flex items-center justify-center absolute top-[50%] left-[50%] translate-x-[-50%] z-50 translate-y-[-50%]">
                     <Image src="/vleis-logo.png" alt="vleis-logo" width={60} height={60} className="sm:w-20 sm:h-20" />

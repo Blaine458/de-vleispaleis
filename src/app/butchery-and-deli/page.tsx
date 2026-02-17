@@ -2,6 +2,42 @@
 import Image from "next/image";
 import { useState } from "react";
 
+function CutDetailBlock({
+    location,
+    characteristics,
+    bestFor,
+    temperature,
+}: {
+    location: string;
+    characteristics: string;
+    bestFor: string;
+    temperature: string;
+}) {
+    const row = (label: string, value: string) => (
+        <div className="flex flex-col sm:flex-row sm:gap-5 gap-1">
+            <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-[#82212a] shrink-0 sm:w-40 lg:w-44">
+                {label}
+            </span>
+            <p className="text-sm sm:text-base lg:text-lg text-[#223534] leading-relaxed font-light">
+                {value}
+            </p>
+        </div>
+    );
+    return (
+        <div className="pb-4 max-w-full sm:max-w-[75%]">
+            <div className="flex flex-col gap-4 pt-1">
+                {row("Location", location)}
+                <div className="w-[85%] h-px bg-[#223534]/10" aria-hidden />
+                {row("Characteristics", characteristics)}
+                <div className="w-[85%] h-px bg-[#223534]/10" aria-hidden />
+                {row("Best for", bestFor)}
+                <div className="w-[85%] h-px bg-[#223534]/10" aria-hidden />
+                {row("Recommended temperature", temperature)}
+            </div>
+        </div>
+    );
+}
+
 export default function ButcheryAndDeli() {
     const [openItem, setOpenItem] = useState<number | null>(null);
     return (
@@ -24,7 +60,7 @@ All the cuts are matured for a minimum of 28-32 days to ensure absolute maximum 
 <br />
 We also hand select and air cure only the very best beef Biltong in our herb & spice recipes that have been developed over 40 years.</p>
                 </div>
-                <Image src="/VP-Cuts.png" alt="Cuts of beef" width={1920} height={1080} className="object-cover max-h-[40vh] sm:max-h-[45vh] lg:max-h-[50vh] w-full lg:max-w-[50%]" />
+                <Image src="/VP-Cuts.png" alt="Cuts of beef" width={1920} height={1080} className="max-h-[40vh] sm:max-h-[45vh] lg:max-h-[50vh] w-full lg:max-w-[50%] object-contain" style={{ objectFit: 'contain' }} />
             </section>
             <section className="flex flex-col gap-4 h-fit bg-[#fffae7] text-[#223534]">
             <div className="flex flex-col gap-2 px-4 sm:px-8 lg:px-30 py-12 sm:py-16 lg:py-20">
@@ -38,7 +74,7 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                     >
                         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full">
                             <div className={`w-16 h-16 ${openItem === 0 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center aspect-square justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
-                                <Image src="/1.webp" alt="meat cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
+                                <Image src="/3.webp" alt="Fillet" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
                             </div>
                             <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
                                 <h3 
@@ -51,12 +87,15 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                                         alignItems: 'center'
                                     }}
                                 >
-                                    Fillet / Tenderloin
+                                    Fillet
                                 </h3>
-                                <div className={`overflow-hidden transition-all duration-500 ease-in-out ${openItem === 0 ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                                    <div className="pb-4 max-w-full sm:max-w-[50%]">
-                                        <p className="text-sm sm:text-base lg:text-lg leading-relaxed">The most tender cut of beef, located in the loin. Known for its buttery texture and mild flavor. Perfect for dishes like Beef Wellington or classic steak au poivre.</p>
-                                    </div>
+                                <div className={`overflow-hidden transition-all duration-500 ease-in-out ${openItem === 0 ? 'max-h-[32rem] opacity-100' : 'max-h-0 opacity-0'}`}>
+                                    <CutDetailBlock
+                                        location="From the loin, the most tender muscle that runs along the spine."
+                                        characteristics="Buttery texture, mild flavor, very lean with minimal fat."
+                                        bestFor="Beef Wellington, steak au poivre, carpaccio, tartare."
+                                        temperature="125°F (52°C) for rare, 130°F (54°C) for medium-rare, 140°F (60°C) for medium."
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -65,6 +104,7 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                         </span>
                     </button>
                 </div>
+
                 <div className={`border-b border-[#223534]/20 ${openItem === 1 ? 'group' : ''}`}>
                     <button 
                         onClick={() => setOpenItem(openItem === 1 ? null : 1)}
@@ -72,7 +112,7 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                     >
                         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full">
                             <div className={`w-16 h-16 ${openItem === 1 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center aspect-square justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
-                                <Image src="/2.webp" alt="meat cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
+                                    <Image src="/6.webp" alt="meat cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
                             </div>
                             <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
                                 <h3 
@@ -85,12 +125,15 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                                         alignItems: 'center'
                                     }}
                                 >
-                                    Ribeye
+                                    Sirloin
                                 </h3>
-                                <div className={`overflow-hidden transition-all duration-500 ease-in-out ${openItem === 1 ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                                    <div className="pb-4 max-w-full sm:max-w-[50%]">
-                                        <p className="text-sm sm:text-base lg:text-lg leading-relaxed">Cut from the rib section, known for its rich marbling and robust beef flavor. Ideal for grilling or pan-searing.</p>
-                                    </div>
+                                <div className={`overflow-hidden transition-all duration-500 ease-in-out ${openItem === 1 ? 'max-h-[32rem] opacity-100' : 'max-h-0 opacity-0'}`}>
+                                    <CutDetailBlock
+                                        location="Rear back portion of the cow, from the hip area."
+                                        characteristics="Great beefy flavor, good tenderness, more affordable than fillet."
+                                        bestFor="Grilling, pan-frying, stir-fry, steak sandwiches."
+                                        temperature="130°F (54°C) for medium-rare, 140°F (60°C) for medium, 150°F (66°C) for medium-well."
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -106,78 +149,8 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                         className="flex flex-col sm:flex-row justify-between items-start sm:items-center cursor-pointer list-none p-3 sm:p-4 w-full text-left"
                     >
                         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full">
-                            <div className={`w-16 h-16 ${openItem === 2 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center aspect-square justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
-                                    <Image src="/3.webp" alt="meat cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
-                            </div>
-                            <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
-                                <h3 
-                                    className="text-lg sm:text-xl font-bold font-trajan"
-                                    style={{
-                                        fontSize: '1.75rem',
-                                        marginBottom: '0.5rem',
-                                        minHeight: '2.5rem',
-                                        display: 'flex',
-                                        alignItems: 'center'
-                                    }}
-                                >
-                                    Sirloin
-                                </h3>
-                                <div className={`overflow-hidden transition-all duration-500 ease-in-out ${openItem === 2 ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                                    <div className="pb-4 max-w-full sm:max-w-[50%]">
-                                        <p className="text-sm sm:text-base lg:text-lg leading-relaxed">A popular cut from the rear back of the cow, offering great flavor and tenderness at a more affordable price point.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <span className={`transition self-start sm:self-auto ${openItem === 2 ? 'rotate-180' : ''}`}>
-                            <svg fill="none" height="20" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="20" className="sm:w-6 sm:h-6"><path d="M6 9l6 6 6-6"></path></svg>
-                        </span>
-                    </button>
-                </div>
-
-                <div className={`border-b border-[#223534]/20 ${openItem === 3 ? 'group' : ''}`}>
-                    <button 
-                        onClick={() => setOpenItem(openItem === 3 ? null : 3)}
-                        className="flex flex-col sm:flex-row justify-between items-start sm:items-center cursor-pointer list-none p-3 sm:p-4 w-full text-left"
-                    >
-                        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full">
-                            <div className={`w-16 h-16 ${openItem === 3 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center aspect-square justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
-                                    <Image src="/4.webp" alt="meat cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
-                            </div>
-                            <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
-                                <h3 
-                                    className="text-lg sm:text-xl font-bold font-trajan"
-                                    style={{
-                                        fontSize: '1.75rem',
-                                        marginBottom: '0.5rem',
-                                        minHeight: '2.5rem',
-                                        display: 'flex',
-                                        alignItems: 'center'
-                                    }}
-                                >
-                                    T-Bone
-                                </h3>
-                                <div className={`overflow-hidden transition-all duration-500 ease-in-out ${openItem === 3 ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                                    <div className="pb-4 max-w-full sm:max-w-[50%]">
-                                        <p className="text-sm sm:text-base lg:text-lg leading-relaxed">Features both tenderloin and strip steak separated by a T-shaped bone. Offers two unique textures and flavors in one cut.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <span className={`transition ${openItem === 3 ? 'rotate-180' : ''}`}>
-                            <svg fill="none" height="20" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="20" className="sm:w-6 sm:h-6"><path d="M6 9l6 6 6-6"></path></svg>
-                        </span>
-                    </button>
-                </div>
-
-                <div className={`border-b border-[#223534]/20 ${openItem === 4 ? 'group' : ''}`}>
-                    <button 
-                        onClick={() => setOpenItem(openItem === 4 ? null : 4)}
-                        className="flex flex-col sm:flex-row justify-between items-start sm:items-center cursor-pointer list-none p-3 sm:p-4 w-full text-left"
-                    >
-                        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full">
-                            <div className={`w-16 h-16 ${openItem === 4 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
-                                    <Image src="/5.webp" alt="meat cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
+                            <div className={`w-16 h-16 ${openItem === 2 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
+                                    <Image src="/7.webp" alt="meat cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
                             </div>
                             <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
                                 <h3 
@@ -192,27 +165,30 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                                 >
                                     Rump
                                 </h3>
-                                <div className={`overflow-hidden transition-all duration-500 ease-in-out ${openItem === 4 ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                                    <div className="pb-4 max-w-full sm:max-w-[50%]">
-                                        <p className="text-sm sm:text-base lg:text-lg leading-relaxed">A flavorful cut from the rear of the cow. Lean but tender when cooked properly. Popular in South African cuisine.</p>
-                                    </div>
+                                <div className={`overflow-hidden transition-all duration-500 ease-in-out ${openItem === 2 ? 'max-h-[32rem] opacity-100' : 'max-h-0 opacity-0'}`}>
+                                    <CutDetailBlock
+                                        location="From the hindquarter, the rear of the cow."
+                                        characteristics="Lean, flavorful, popular in South African cuisine; tender when cooked properly."
+                                        bestFor="Braai/grilling, roasting, stir-fry, biltong."
+                                        temperature="130°F (54°C) for medium-rare, 140°F (60°C) for medium."
+                                    />
                                 </div>
                             </div>
                         </div>
-                        <span className={`transition ${openItem === 4 ? 'rotate-180' : ''}`}>
+                        <span className={`transition ${openItem === 2 ? 'rotate-180' : ''}`}>
                             <svg fill="none" height="20" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="20" className="sm:w-6 sm:h-6"><path d="M6 9l6 6 6-6"></path></svg>
                         </span>
                     </button>
                 </div>
 
-                <div className={`border-b border-[#223534]/20 ${openItem === 5 ? 'group' : ''}`}>
+                <div className={`border-b border-[#223534]/20 ${openItem === 3 ? 'group' : ''}`}>
                     <button 
-                        onClick={() => setOpenItem(openItem === 5 ? null : 5)}
+                        onClick={() => setOpenItem(openItem === 3 ? null : 3)}
                         className="flex flex-col sm:flex-row justify-between items-start sm:items-center cursor-pointer list-none p-3 sm:p-4 w-full text-left"
                     >
                         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full">
-                            <div className={`w-16 h-16 ${openItem === 5 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
-                                    <Image src="/6.webp" alt="meat cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
+                            <div className={`w-16 h-16 ${openItem === 3 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
+                                    <Image src="/8.webp" alt="meat cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
                             </div>
                             <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
                                 <h3 
@@ -225,16 +201,99 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                                         alignItems: 'center'
                                     }}
                                 >
-                                    Tomahawk
+                                    Picanha
                                 </h3>
-                                <div className={`overflow-hidden transition-all duration-500 ease-in-out ${openItem === 5 ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                                    <div className="pb-4 max-w-full sm:max-w-[50%]">
-                                        <p className="text-sm sm:text-base lg:text-lg leading-relaxed">A dramatic ribeye cut with the entire rib bone left intact. Known for its impressive presentation and rich flavor.</p>
-                                    </div>
+                                <div className={`overflow-hidden transition-all duration-500 ease-in-out ${openItem === 3 ? 'max-h-[32rem] opacity-100' : 'max-h-0 opacity-0'}`}>
+                                    <CutDetailBlock
+                                        location="Top of the rump (rump cap), from the hindquarter."
+                                        characteristics="Rich flavor, distinctive fat cap that bastes the meat, prized in Brazilian cuisine."
+                                        bestFor="Grilling (churrasco-style), roasting, smoking."
+                                        temperature="130°F (54°C) for medium-rare, 140°F (60°C) for medium."
+                                    />
                                 </div>
                             </div>
                         </div>
-                        <span className={`transition ${openItem === 5 ? 'rotate-180' : ''}`}>
+                        <span className={`transition ${openItem === 3 ? 'rotate-180' : ''}`}>
+                            <svg fill="none" height="20" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="20" className="sm:w-6 sm:h-6"><path d="M6 9l6 6 6-6"></path></svg>
+                        </span>
+                    </button>
+                </div>
+            </div>
+            <div className="flex flex-col gap-2 px-4 sm:px-8 lg:px-30 py-12 sm:py-16 lg:py-20">
+                <h2 className="text-6xl sm:text-4xl md:text-5xl lg:text-6xl font-trajan font-bold mb-6 sm:mb-8">Meat On The Bone</h2>
+               
+
+                <div className={`border-b border-[#223534]/20 ${openItem === 4 ? 'group' : ''}`}>
+                    <button 
+                        onClick={() => setOpenItem(openItem === 4 ? null : 4)}
+                        className="flex flex-col sm:flex-row justify-between items-start sm:items-center cursor-pointer list-none p-3 sm:p-4 w-full text-left"
+                    >
+                        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full">
+                            <div className={`w-16 h-16 ${openItem === 4 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center aspect-square justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
+                                <Image src="/8.webp" alt="meat cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
+                            </div>
+                            <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
+                                <h3 
+                                    className="text-lg sm:text-xl font-bold font-trajan"
+                                    style={{
+                                        fontSize: '1.7rem',
+                                        marginBottom: '0.5rem',
+                                        minHeight: '2.5rem',
+                                        display: 'flex',
+                                        alignItems: 'center'
+                                    }}
+                                >
+                                    T-Bone
+                                </h3>
+                                <div className={`overflow-hidden transition-all duration-500 ease-in-out ${openItem === 4 ? 'max-h-[32rem] opacity-100' : 'max-h-0 opacity-0'}`}>
+                                    <CutDetailBlock
+                                        location="Short loin, with both fillet and sirloin on the bone."
+                                        characteristics="Rich flavor, tender texture, and a good balance of fat and lean."
+                                        bestFor="Grilling, roasting, and braising."
+                                        temperature="145°F (63°C) for medium-rare, 160°F (71°C) for medium, 175°F (79°C) for medium-well."
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <span className={`transition self-start sm:self-auto ${openItem === 4 ? 'rotate-180' : ''}`}>
+                            <svg fill="none" height="20" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="20" className="sm:w-6 sm:h-6"><path d="M6 9l6 6 6-6"></path></svg>
+                        </span>
+                    </button>
+                </div>
+
+                <div className={`border-b border-[#223534]/20 ${openItem === 5 ? 'group' : ''}`}>
+                    <button 
+                        onClick={() => setOpenItem(openItem === 5 ? null : 5)}
+                        className="flex flex-col sm:flex-row justify-between items-start sm:items-center cursor-pointer list-none p-3 sm:p-4 w-full text-left"
+                    >
+                        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full">
+                            <div className={`w-16 h-16 ${openItem === 5 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center aspect-square justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
+                                    <Image src="/11.webp" alt="meat cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
+                            </div>
+                            <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
+                                <h3 
+                                    className="text-lg sm:text-xl font-bold font-trajan"
+                                    style={{
+                                        fontSize: '1.75rem',
+                                        marginBottom: '0.5rem',
+                                        minHeight: '2.5rem',
+                                        display: 'flex',
+                                        alignItems: 'center'
+                                    }}
+                                >
+                                    Sirloin On The Bone
+                                </h3>
+                                <div className={`overflow-hidden transition-all duration-500 ease-in-out ${openItem === 5 ? 'max-h-[32rem] opacity-100' : 'max-h-0 opacity-0'}`}>
+                                    <CutDetailBlock
+                                        location="Same as sirloin but left on the bone (hip bone)."
+                                        characteristics="Enhanced flavor from the bone, juicy, good marbling."
+                                        bestFor="Grilling, braai, roasting."
+                                        temperature="130°F (54°C) for medium-rare, 140°F (60°C) for medium, 150°F (66°C) for medium-well."
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <span className={`transition self-start sm:self-auto ${openItem === 5 ? 'rotate-180' : ''}`}>
                             <svg fill="none" height="20" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="20" className="sm:w-6 sm:h-6"><path d="M6 9l6 6 6-6"></path></svg>
                         </span>
                     </button>
@@ -247,7 +306,7 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                     >
                         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full">
                             <div className={`w-16 h-16 ${openItem === 6 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
-                                    <Image src="/7.webp" alt="meat cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
+                                    <Image src="/5.webp" alt="meat cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
                             </div>
                             <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
                                 <h3 
@@ -260,12 +319,15 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                                         alignItems: 'center'
                                     }}
                                 >
-                                    Flank Steak
+                                    Fillet On The Bone
                                 </h3>
-                                <div className={`overflow-hidden transition-all duration-500 ease-in-out ${openItem === 6 ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                                    <div className="pb-4 max-w-full sm:max-w-[50%]">
-                                        <p className="text-sm sm:text-base lg:text-lg leading-relaxed">A lean cut from the abdominal muscles. Best marinated and grilled, perfect for fajitas and stir-fries.</p>
-                                    </div>
+                                <div className={`overflow-hidden transition-all duration-500 ease-in-out ${openItem === 6 ? 'max-h-[32rem] opacity-100' : 'max-h-0 opacity-0'}`}>
+                                    <CutDetailBlock
+                                        location="Short loin with the fillet (tenderloin) attached to the bone."
+                                        characteristics="Combines tenderness of fillet with flavor from the bone."
+                                        bestFor="Grilling, roasting, special occasions."
+                                        temperature="125°F (52°C) for rare, 130°F (54°C) for medium-rare, 140°F (60°C) for medium."
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -282,146 +344,6 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                     >
                         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full">
                             <div className={`w-16 h-16 ${openItem === 7 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
-                                    <Image src="/8.webp" alt="meat cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
-                            </div>
-                            <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
-                                <h3 
-                                    className="text-lg sm:text-xl font-bold font-trajan"
-                                    style={{
-                                        fontSize: '1.75rem',
-                                        marginBottom: '0.5rem',
-                                        minHeight: '2.5rem',
-                                        display: 'flex',
-                                        alignItems: 'center'
-                                    }}
-                                >
-                                    Picanha
-                                </h3>
-                                <div className={`overflow-hidden transition-all duration-500 ease-in-out ${openItem === 7 ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                                    <div className="pb-4 max-w-full sm:max-w-[50%]">
-                                        <p className="text-sm sm:text-base lg:text-lg leading-relaxed">Also known as the rump cap, this cut is popular in Brazilian steakhouses. Known for its rich flavor and distinctive fat cap.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <span className={`transition ${openItem === 7 ? 'rotate-180' : ''}`}>
-                            <svg fill="none" height="20" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="20" className="sm:w-6 sm:h-6"><path d="M6 9l6 6 6-6"></path></svg>
-                        </span>
-                    </button>
-                </div>
-
-                <div className={`border-b border-[#223534]/20 ${openItem === 8 ? 'group' : ''}`}>
-                    <button 
-                        onClick={() => setOpenItem(openItem === 8 ? null : 8)}
-                        className="flex flex-col sm:flex-row justify-between items-start sm:items-center cursor-pointer list-none p-3 sm:p-4 w-full text-left"
-                    >
-                        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full">
-                            <div className={`w-16 h-16 ${openItem === 8 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
-                                    <Image src="/9.webp" alt="meat cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
-                            </div>
-                            <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
-                                <h3 
-                                    className="text-lg sm:text-xl font-bold font-trajan"
-                                    style={{
-                                        fontSize: '1.75rem',
-                                        marginBottom: '0.5rem',
-                                        minHeight: '2.5rem',
-                                        display: 'flex',
-                                        alignItems: 'center'
-                                    }}
-                                >
-                                    Flat Iron
-                                </h3>
-                                <div className={`overflow-hidden transition-all duration-500 ease-in-out ${openItem === 8 ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                                    <div className="pb-4 max-w-full sm:max-w-[50%]">
-                                        <p className="text-sm sm:text-base lg:text-lg leading-relaxed">Cut from the shoulder, second only to tenderloin in tenderness. Excellent marbling and beef flavor.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <span className={`transition ${openItem === 8 ? 'rotate-180' : ''}`}>
-                            <svg fill="none" height="20" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="20" className="sm:w-6 sm:h-6"><path d="M6 9l6 6 6-6"></path></svg>
-                        </span>
-                    </button>
-                </div>
-
-                <div className={`border-b border-[#223534]/20 ${openItem === 9 ? 'group' : ''}`}>
-                    <button 
-                        onClick={() => setOpenItem(openItem === 9 ? null : 9)}
-                        className="flex flex-col sm:flex-row justify-between items-start sm:items-center cursor-pointer list-none p-3 sm:p-4 w-full text-left"
-                    >
-                        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full">
-                            <div className={`w-16 h-16 ${openItem === 9 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
-                                    <Image src="/10.webp" alt="meat cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
-                            </div>
-                            <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
-                                <h3 
-                                    className="text-lg sm:text-xl font-bold font-trajan"
-                                    style={{
-                                        fontSize: '1.75rem',
-                                        marginBottom: '0.5rem',
-                                        minHeight: '2.5rem',
-                                        display: 'flex',
-                                        alignItems: 'center'
-                                    }}
-                                >
-                                    Chuck Eye
-                                </h3>
-                                <div className={`overflow-hidden transition-all duration-500 ease-in-out ${openItem === 9 ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                                    <div className="pb-4 max-w-full sm:max-w-[50%]">
-                                        <p className="text-sm sm:text-base lg:text-lg leading-relaxed">Often called the "poor man's ribeye." Cut from the chuck primal, offering similar flavor to ribeye at a lower price point.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <span className={`transition ${openItem === 9 ? 'rotate-180' : ''}`}>
-                            <svg fill="none" height="20" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="20" className="sm:w-6 sm:h-6"><path d="M6 9l6 6 6-6"></path></svg>
-                        </span>
-                    </button>
-                </div>
-
-                <div className={`border-b border-[#223534]/20 ${openItem === 10 ? 'group' : ''}`}>
-                    <button 
-                        onClick={() => setOpenItem(openItem === 10 ? null : 10)}
-                        className="flex flex-col sm:flex-row justify-between items-start sm:items-center cursor-pointer list-none p-3 sm:p-4 w-full text-left"
-                    >
-                        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full">
-                            <div className={`w-16 h-16 ${openItem === 10 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
-                                    <Image src="/11.webp" alt="meat cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
-                            </div>
-                            <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
-                                <h3 
-                                    className="text-lg sm:text-xl font-bold font-trajan"
-                                    style={{
-                                        fontSize: '1.75rem',
-                                        marginBottom: '0.5rem',
-                                        minHeight: '2.5rem',
-                                        display: 'flex',
-                                        alignItems: 'center'
-                                    }}
-                                >
-                                    Short Rib
-                                </h3>
-                                <div className={`overflow-hidden transition-all duration-500 ease-in-out ${openItem === 10 ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                                    <div className="pb-4 max-w-full sm:max-w-[50%]">
-                                        <p className="text-sm sm:text-base lg:text-lg leading-relaxed">Taken from the brisket, rib, plate, or chuck areas. Perfect for slow cooking and braising, resulting in rich, tender meat.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <span className={`transition ${openItem === 10 ? 'rotate-180' : ''}`}>
-                            <svg fill="none" height="20" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="20" className="sm:w-6 sm:h-6"><path d="M6 9l6 6 6-6"></path></svg>
-                        </span>
-                    </button>
-                </div>
-
-                <div className={`border-b border-[#223534]/20 ${openItem === 11 ? 'group' : ''}`}>
-                    <button 
-                        onClick={() => setOpenItem(openItem === 11 ? null : 11)}
-                        className="flex flex-col sm:flex-row justify-between items-start sm:items-center cursor-pointer list-none p-3 sm:p-4 w-full text-left"
-                    >
-                        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full">
-                            <div className={`w-16 h-16 ${openItem === 11 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
                                     <Image src="/12.webp" alt="meat cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
                             </div>
                             <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
@@ -435,16 +357,100 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                                         alignItems: 'center'
                                     }}
                                 >
-                                    Brisket
+                                    Tomahawk
                                 </h3>
-                                <div className={`overflow-hidden transition-all duration-500 ease-in-out ${openItem === 11 ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                                    <div className="pb-4 max-w-full sm:max-w-[50%]">
-                                        <p className="text-sm sm:text-base lg:text-lg leading-relaxed">A tough cut that becomes tender with slow cooking. Essential for barbecue and perfect for smoking or braising.</p>
-                                    </div>
+                                <div className={`overflow-hidden transition-all duration-500 ease-in-out ${openItem === 7 ? 'max-h-[32rem] opacity-100' : 'max-h-0 opacity-0'}`}>
+                                    <CutDetailBlock
+                                        location="Ribeye with the full rib bone (French-trimmed) left attached."
+                                        characteristics="Dramatic presentation, rich marbling, bone adds flavor and moisture."
+                                        bestFor="Grilling, braai, roasting—a show-stopper cut."
+                                        temperature="130°F (54°C) for medium-rare, 140°F (60°C) for medium."
+                                    />
                                 </div>
                             </div>
                         </div>
-                        <span className={`transition ${openItem === 11 ? 'rotate-180' : ''}`}>
+                        <span className={`transition ${openItem === 7 ? 'rotate-180' : ''}`}>
+                            <svg fill="none" height="20" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="20" className="sm:w-6 sm:h-6"><path d="M6 9l6 6 6-6"></path></svg>
+                        </span>
+                    </button>
+                </div>
+            </div>
+            
+            <div className="flex flex-col gap-2 px-4 sm:px-8 lg:px-30 py-12 sm:py-16 lg:py-20">
+                <h2 className="text-6xl sm:text-4xl md:text-5xl lg:text-6xl font-trajan font-bold mb-6 sm:mb-8">Wagyu</h2>
+               
+
+                <div className={`border-b border-[#223534]/20 ${openItem === 8 ? 'group' : ''}`}>
+                    <button 
+                        onClick={() => setOpenItem(openItem === 8 ? null : 8)}
+                        className="flex flex-col sm:flex-row justify-between items-start sm:items-center cursor-pointer list-none p-3 sm:p-4 w-full text-left"
+                    >
+                        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full">
+                            <div className={`w-16 h-16 ${openItem === 8 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center aspect-square justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
+                                <Image src="/10.webp" alt="meat cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
+                            </div>
+                            <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
+                                <h3 
+                                    className="text-lg sm:text-xl font-bold font-trajan"
+                                    style={{
+                                        fontSize: '1.7rem',
+                                        marginBottom: '0.5rem',
+                                        minHeight: '2.5rem',
+                                        display: 'flex',
+                                        alignItems: 'center'
+                                    }}
+                                >
+                                    Ribeye
+                                </h3>
+                                <div className={`overflow-hidden transition-all duration-500 ease-in-out ${openItem === 8 ? 'max-h-[32rem] opacity-100' : 'max-h-0 opacity-0'}`}>
+                                    <CutDetailBlock
+                                        location="From the rib section (ribs 6–12)."
+                                        characteristics="Abundant marbling (especially Wagyu), rich, buttery, intensely flavorful."
+                                        bestFor="Grilling, pan-searing, minimal seasoning to highlight the meat."
+                                        temperature="125°F (52°C) for rare, 130°F (54°C) for medium-rare."
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <span className={`transition self-start sm:self-auto ${openItem === 8 ? 'rotate-180' : ''}`}>
+                            <svg fill="none" height="20" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="20" className="sm:w-6 sm:h-6"><path d="M6 9l6 6 6-6"></path></svg>
+                        </span>
+                    </button>
+                </div>
+
+                <div className={`border-b border-[#223534]/20 ${openItem === 9 ? 'group' : ''}`}>
+                    <button 
+                        onClick={() => setOpenItem(openItem === 9 ? null : 9)}
+                        className="flex flex-col sm:flex-row justify-between items-start sm:items-center cursor-pointer list-none p-3 sm:p-4 w-full text-left"
+                    >
+                        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full">
+                            <div className={`w-16 h-16 ${openItem === 9 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center aspect-square justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
+                                    <Image src="/3.webp" alt="meat cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
+                            </div>
+                            <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
+                                <h3 
+                                    className="text-lg sm:text-xl font-bold font-trajan"
+                                    style={{
+                                        fontSize: '1.75rem',
+                                        marginBottom: '0.5rem',
+                                        minHeight: '2.5rem',
+                                        display: 'flex',
+                                        alignItems: 'center'
+                                    }}
+                                >
+                                    Burger Patty
+                                </h3>
+                                <div className={`overflow-hidden transition-all duration-500 ease-in-out ${openItem === 9 ? 'max-h-[32rem] opacity-100' : 'max-h-0 opacity-0'}`}>
+                                    <CutDetailBlock
+                                        location="Ground/minced beef, often from chuck, brisket, or Wagyu trimmings."
+                                        characteristics="Rich, juicy, high fat content for flavor and moisture."
+                                        bestFor="Grilling, pan-frying, smash burgers."
+                                        temperature="160°F (71°C) for well-done (ground meat food safety)."
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <span className={`transition self-start sm:self-auto ${openItem === 9 ? 'rotate-180' : ''}`}>
                             <svg fill="none" height="20" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="20" className="sm:w-6 sm:h-6"><path d="M6 9l6 6 6-6"></path></svg>
                         </span>
                     </button>
