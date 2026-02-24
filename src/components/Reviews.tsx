@@ -16,9 +16,19 @@ export default function Reviews() {
             source: "5 star review from TripAdvisor"
         },
         {
+            text: "Best meal we’ve ever had in Stellenbosch. Loved all the details, and was a lovely complimentary cheesecake for my boyfriend’s birthday, it made the night so much more special! ❤️",
+            name: "Kyra C",
+            source: "5 star review from Dineplan"
+        },
+        {
             text: "Very friendly and accommodating staff. We got (without reservation) a wonderful place in the courtyard. The food is super-tasty, the wine selection excellent. Very happy to come back...",
             name: "Schneeteufel",
             source: "5 star review from TripAdvisor"
+        },
+        {
+            text: "My first time at Vleis Paleis and I enjoyed it, the food was devine. We will sure be back. Service, excellent.",
+            name: "Gavin S",
+            source: "5 star review from Dineplan"
         },
         {
             text: "This is a meat lovers paradise so if you love good quality exceptional steaks or meat of any kind this should be one of your choices to eat in Stellenbosch. Most of our party ordered steaks, ribs or lamb chops and every plate of food was cooked to perfection with the most delicious sauces we have tasted in a long time. Some ordered fish or vegetarian meals such as salads or vegetables and the kingklip was perfectly prepared and delicious. Service from our waiter was top quality and professional.",
@@ -26,14 +36,34 @@ export default function Reviews() {
             source: "5 star review from TripAdvisor"
         },
         {
+            text: "My wife had the grilled beef fillet and it was the best she ever had 😊. Great service and excellent wines by the glass (we had a white chardonnay and a red shiraz). Our starters (Basque octopus salad and salmon tartare) were delicious as well… a perfect first evening in Stellenbosch",
+            name: "Mark C",
+            source: "5 star review from Google"
+        },
+        {
             text: "Cozy place, waiters and staff are very friendly and polite. Quickly served, the starters came and then the fillet (the waitress's suggestion).. simply the best meat I've ever eaten in my life.",
             name: "Luiz C",
             source: "5 star review from TripAdvisor"
         },
         {
+            text: "Excellent service, delicious food, great prices. We enjoyed dinner here last night and decided to come back for lunch today. Each employee was very friendly and helpful! Will be back",
+            name: "Austin Y",
+            source: "5 star review from Google"
+        },
+        {
+            text: "Excellent restaurant..service was impeccable..came all the way from Ireland on holidays to stellenbosch and a Cork man , Ryan was there to greet us on arrival..what a fantastic experience, food and wine..highly recommended. Thanks to all the staff there",
+            name: "Patrick S",
+            source: "5 star review from Dineplan"
+        },
+        {
             text: "Wonderful restaurant in Stellenbosch near church st the center of town. This is a university town very busy lots of energy and many places to choose from when looking at where to eat. We chose this because the menu looked delicious and it was!!!",
             name: "Barbara S",
             source: "5 star review from TripAdvisor"
+        },
+        {
+            text: "My favourite steak restaurant in Stellenbosch! Absolutely delicious food, and excellent and friendly service. I had the fillet béarnaise and the others who joined me had the sirloin on the bone with the cowboy compound butter - delicious!",
+            name: "Lexi J",
+            source: "5 star review from Google"
         }
     ];
 

@@ -1,10 +1,9 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-// Removed unused PrimaryButton import
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-// Removed unused Lenis import - LenisProvider is disabled
+import { useLenis } from "lenis/react";
 import { Menu, X, ChevronRight } from "lucide-react";
 import dynamic from 'next/dynamic';
 
@@ -17,47 +16,36 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  // Removed unused Lenis - LenisProvider is disabled
   const pathname = usePathname();
   const [isReservationModalOpen, setIsReservationModalOpen] = useState(false);
-  
+  const lenis = useLenis();
+
   const openReservationModal = () => setIsReservationModalOpen(true);
   const closeReservationModal = () => setIsReservationModalOpen(false);
 
-  // Array of slugs where navbar should always be in scrolled state
-  const alwaysScrolledPages = [
-    '/gallery',
-    // Add more page slugs here as needed
-  ];
+  const alwaysScrolledPages = ["/gallery"];
 
   useEffect(() => {
-    // Check if current page should always have scrolled navbar
     const shouldAlwaysBeScrolled = alwaysScrolledPages.includes(pathname);
-    
-    const handleScroll = () => {
+
+    const updateScrollState = () => {
       if (shouldAlwaysBeScrolled) {
         setIsScrolled(true);
       } else {
-        // Simple scroll position check - just check if scrolled past 100px
-        const scrollTop = window.scrollY;
+        const scrollTop = lenis ? lenis.scroll : (typeof window !== "undefined" ? window.scrollY : 0);
         setIsScrolled(scrollTop > 100);
       }
-      
-      // Always show navbar when mobile menu is open
-      if (isMobileMenuOpen) {
-        setIsVisible(true);
-      }
+      if (isMobileMenuOpen) setIsVisible(true);
     };
 
-    // Initial call to set correct state on page load
-    handleScroll();
-    
-    // Use window scroll listener (Lenis is disabled)
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [pathname, isMobileMenuOpen]);
+    updateScrollState();
+    if (lenis) {
+      lenis.on("scroll", updateScrollState);
+      return () => lenis.off("scroll", updateScrollState);
+    }
+    window.addEventListener("scroll", updateScrollState, { passive: true });
+    return () => window.removeEventListener("scroll", updateScrollState);
+  }, [pathname, isMobileMenuOpen, lenis]);
 
 
   const toggleMobileMenu = () => {

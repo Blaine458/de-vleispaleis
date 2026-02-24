@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-// import LenisProvider from "@/components/LenisProvider";
+import LenisProvider from "@/components/LenisProvider";
 import dynamic from 'next/dynamic';
 import Script from "next/script";
 
@@ -92,11 +92,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ScrollProgress />
-        <Navbar />
-        {children}
-        <Footer />
-        <Popup />
+        <LenisProvider>
+          <ScrollProgress />
+          <Navbar />
+          {children}
+          <Footer />
+          <Popup />
+        </LenisProvider>
         
         {/* Load Dineplan script asynchronously and only when needed */}
         <Script
