@@ -91,7 +91,7 @@ export default function Home() {
           />
         </div>
        </section>
-       <section className="relative flex flex-col gap-4 h-fit bg-[#fffae7] text-[#223534] pb-20 lg:pb-40">
+       <section className="relative flex flex-col gap-4 h- min-h-[100vh] bg-[#fffae7] text-[#223534] items-center justify-center lg:pb-40">
         <MainGallery />
        </section>
        <section className="flex flex-col justify-center items-center text-center gap-8 h-fit bg-[#fffae7] text-[#223534] pb-20 lg:pb-30 px-4 lg:px-8">
