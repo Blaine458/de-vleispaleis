@@ -23,7 +23,7 @@ export default function Navbar() {
   const openReservationModal = () => setIsReservationModalOpen(true);
   const closeReservationModal = () => setIsReservationModalOpen(false);
 
-  const alwaysScrolledPages = ["/gallery"];
+  const alwaysScrolledPages = ["/gallery","/menu"];
 
   useEffect(() => {
     const shouldAlwaysBeScrolled = alwaysScrolledPages.includes(pathname);
@@ -101,14 +101,12 @@ export default function Navbar() {
                   <Link href="/gallery" className="px-4 py-3 min-h-[44px] flex items-center cursor-pointer hover:opacity-80 transition-opacity duration-200">Gallery</Link>
                 </li>
                 <li>
-                  <a 
-                    href="/vleispaleis-menu.pdf" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
+                  <Link 
+                    href="/menu" 
                     className="px-4 py-3 min-h-[44px] flex items-center cursor-pointer hover:opacity-80 transition-opacity duration-200"
                   >
                     Menu
-                  </a>
+                  </Link>
                 </li>
             </ul>
           </nav>
@@ -220,7 +218,7 @@ export default function Navbar() {
                 <ChevronRight size={20} className="text-[#82212a]/60" />
               </Link>
               <a 
-                href="/De Vleispaleis Menu.pdf" 
+                href="/vleispaleis-menu.pdf" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 onClick={closeMobileMenu}

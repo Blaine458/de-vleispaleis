@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function MenusSection() {
     return (
-        <div className="relative min-h-screen flex items-center py-20 justify-center overflow-hidden">
+        <div id="menus" className="relative min-h-screen flex items-center py-20 justify-center overflow-hidden">
             {/* Background Image with Overlay */}
             <div className="absolute inset-0 z-0">
                 <Image
@@ -40,9 +40,7 @@ export default function MenusSection() {
                                 Premium AAA grade steaks, fresh seafood, and signature dishes crafted by our master chefs.
                             </p>
                             <Link 
-                                target="_blank" 
-                                rel="noopener noreferrer" 
-                                href="/vleispaleis-menu.pdf"
+                                href="/menu"
                                 className="inline-block px-8 py-4 min-h-[44px] border-[#82212a] border-2 rounded-full hover:text-white hover:bg-[#82212a] text-[#82212a] transition-all duration-300 font-medium tracking-wide uppercase text-sm mt-8 text-center"
                             >
                                 View Menu
@@ -62,9 +60,7 @@ export default function MenusSection() {
                                 Curated collection of South African wines and international selections to complement your meal.
                             </p>
                             <Link 
-                                target="_blank" 
-                                rel="noopener noreferrer" 
-                                href="/vleispaleis-menu.pdf"
+                                href="/menu"
                                 className="inline-block px-8 py-4 min-h-[44px] border-[#82212a] border-2 rounded-full hover:text-white hover:bg-[#82212a] text-[#82212a] transition-all duration-300 font-medium tracking-wide uppercase text-sm mt-8 text-center"
                             >
                                 View Wines
@@ -84,9 +80,7 @@ export default function MenusSection() {
                                 An extensive range of cocktails, spirits, craft beers, and non-alcoholic refreshments to suit every taste.
                             </p>
                             <Link 
-                                target="_blank" 
-                                rel="noopener noreferrer" 
-                                href="/vleispaleis-menu.pdf"
+                                href="/menu"
                                 className="inline-block px-8 py-4 min-h-[44px] border-[#82212a] border-2 rounded-full hover:text-white hover:bg-[#82212a] text-[#82212a] transition-all duration-300 font-medium tracking-wide uppercase text-sm mt-8 text-center"
                             >
                                 View Drinks
