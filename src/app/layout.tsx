@@ -97,13 +97,6 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-<<<<<<< HEAD
-        <ScrollProgress />
-        <Navbar />
-        {children}
-        <Footer />
-        <Popup />
-=======
         <LenisProvider>
           <ScrollProgress />
           <Navbar />
@@ -111,16 +104,6 @@ export default function RootLayout({
           <Footer />
           <Popup />
         </LenisProvider>
-        
-        {/* Load Dineplan script asynchronously and only when needed */}
-        <Script
-          src="https://public-prod.dineplan.com/widget/dineplan.widget.min.js"
-          strategy="lazyOnload"
-          id="dineplan-widget"
-        />
-        
-        {/* Move inline script to separate component or use Next.js Script - load after page is interactive */}
->>>>>>> 8185ed32d55c62138c59b0f89ee49203b85f5307
         <Script
           id="dineplan-message-handler"
           strategy="afterInteractive"
