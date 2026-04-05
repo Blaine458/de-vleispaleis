@@ -64,7 +64,7 @@ export default function MenusSection() {
                             <Link 
                                 target="_blank" 
                                 rel="noopener noreferrer" 
-                                href="/vleispaleis-menu.pdf"
+                                href="/vleispaleis-menu.pdf#page=11"
                                 className="inline-block px-8 py-4 min-h-[44px] border-[#82212a] border-2 rounded-full hover:text-white hover:bg-[#82212a] text-[#82212a] transition-all duration-300 font-medium tracking-wide uppercase text-sm mt-8 text-center"
                             >
                                 View Wines
@@ -86,7 +86,7 @@ export default function MenusSection() {
                             <Link 
                                 target="_blank" 
                                 rel="noopener noreferrer" 
-                                href="/vleispaleis-menu.pdf"
+                                href="/vleispaleis-menu.pdf#page=24"
                                 className="inline-block px-8 py-4 min-h-[44px] border-[#82212a] border-2 rounded-full hover:text-white hover:bg-[#82212a] text-[#82212a] transition-all duration-300 font-medium tracking-wide uppercase text-sm mt-8 text-center"
                             >
                                 View Drinks
