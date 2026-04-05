@@ -3,36 +3,50 @@ import { useState, useEffect } from 'react';
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-export default function FullGallery() {
-    const [mounted, setMounted] = useState(false);
+const EMPTY_IMAGES: { src: string; alt: string }[] = [];
+
+type FullGalleryProps = {
+    images?: { src: string; alt: string }[];
+};
+
+export default function FullGallery(_props: FullGalleryProps) {
+    const [images, setImages] = useState<{ src: string; alt: string }[]>(EMPTY_IMAGES);
+    const [fetchDone, setFetchDone] = useState(false);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     useEffect(() => {
-        setMounted(true);
+        let cancelled = false;
+        fetch(`/api/gallery-images?_=${Date.now()}`, { cache: "no-store" })
+            .then((res) => res.json())
+            .then((list: unknown) => {
+                if (!cancelled) {
+                    setImages(Array.isArray(list) ? list : EMPTY_IMAGES);
+                    setFetchDone(true);
+                }
+            })
+            .catch(() => {
+                if (!cancelled) setFetchDone(true);
+            });
+        return () => { cancelled = true; };
     }, []);
 
-    const images = Array.from({ length: 16 }, (_, i) => ({
-        src: `/vleispaleis-site-images/${100 + i}.jpg`,
-        alt: `De Vleispaleis ${100 + i}`,
-    }));
-
+    const list = Array.isArray(images) ? images : EMPTY_IMAGES;
+    const safeList = list ?? EMPTY_IMAGES;
     const handlePreviousImage = () => {
-
-        setCurrentImageIndex(prev => prev === 0 ? images.length - 1 : prev - 1);
+        setCurrentImageIndex(prev => prev === 0 ? safeList.length - 1 : prev - 1);
     };
 
     const handleNextImage = () => {
-        setCurrentImageIndex(prev => prev === images.length - 1 ? 0 : prev + 1);
+        setCurrentImageIndex(prev => prev === safeList.length - 1 ? 0 : prev + 1);
     };
 
-    if (!mounted) {
+    if (fetchDone && safeList.length === 0) {
         return (
             <div
                 className="relative w-full overflow-hidden bg-[#82212a]/5 rounded-xl flex items-center justify-center"
                 style={{ height: 'clamp(50vh, 70vh, 80vh)' }}
-                aria-hidden
             >
-                <span className="text-[#223534]/40 text-sm font-light">Loading gallery…</span>
+                <span className="text-[#223534]/40 text-sm font-light">No images in gallery.</span>
             </div>
         );
     }
@@ -53,10 +67,11 @@ export default function FullGallery() {
             <div className="flex items-center justify-center h-full w-full px-4 sm:px-8 md:px-16">
                 <div className="relative w-full max-w-4xl">
                     <div className="flex items-center justify-center h-full">
-                        {images.map((image, index) => {
+                        {safeList.map((image, index) => {
+                            if (!image) return null;
                             const isActive = index === currentImageIndex;
-                            const isPrevious = index === (currentImageIndex === 0 ? images.length - 1 : currentImageIndex - 1);
-                            const isNext = index === (currentImageIndex === images.length - 1 ? 0 : currentImageIndex + 1);
+                            const isPrevious = index === (currentImageIndex === 0 ? safeList.length - 1 : currentImageIndex - 1);
+                            const isNext = index === (currentImageIndex === safeList.length - 1 ? 0 : currentImageIndex + 1);
                             
                             return (
                                 <div 
@@ -75,6 +90,7 @@ export default function FullGallery() {
                                         width={800}
                                         height={600}
                                         priority={index === 0}
+                                        unoptimized
                                         className="rounded-xl object-cover"
                                         style={{ 
                                             height: 'clamp(40vh, 60vh, 70vh)', 
