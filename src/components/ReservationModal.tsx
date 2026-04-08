@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { X } from 'lucide-react';
 
 interface ReservationModalProps {
@@ -36,6 +37,36 @@ export default function ReservationModal({ isOpen, onClose }: ReservationModalPr
                 window.scrollTo(0, parseInt(scrollY || '0') * -1);
             }
         }
+    }, [isOpen]);
+
+    // iOS Safari: privacy sheets / URL chrome change `visualViewport`; Dineplan fancybox can
+    // otherwise size against the full document while body is scroll-locked. Publish px height for CSS.
+    useEffect(() => {
+        if (!isOpen) return;
+
+        const setVisualViewportHeightVar = () => {
+            const h =
+                typeof window !== 'undefined' && window.visualViewport
+                    ? window.visualViewport.height
+                    : window.innerHeight;
+            document.documentElement.style.setProperty('--dp-vv', `${h}px`);
+        };
+
+        setVisualViewportHeightVar();
+        window.addEventListener('resize', setVisualViewportHeightVar);
+        const vv = window.visualViewport;
+        if (vv) {
+            vv.addEventListener('resize', setVisualViewportHeightVar);
+            vv.addEventListener('scroll', setVisualViewportHeightVar);
+        }
+        return () => {
+            window.removeEventListener('resize', setVisualViewportHeightVar);
+            if (vv) {
+                vv.removeEventListener('resize', setVisualViewportHeightVar);
+                vv.removeEventListener('scroll', setVisualViewportHeightVar);
+            }
+            document.documentElement.style.removeProperty('--dp-vv');
+        };
     }, [isOpen]);
 
     // Listen for booking completion events
@@ -103,20 +134,22 @@ export default function ReservationModal({ isOpen, onClose }: ReservationModalPr
         }
     };
 
-    if (!isVisible) return null;
+    if (!isVisible || typeof document === 'undefined') return null;
 
-    return (
-        <div 
-            className="fixed inset-0 bg-black/50 bg-opacity-50 z-[9999] flex items-center justify-center p-2 sm:p-4 overflow-y-auto"
+    // Portal to body so `position: fixed` is viewport-relative (Lenis uses transforms; without this,
+    // Dineplan fancybox on body ties at z-index 9999 and stacks incorrectly on mobile).
+    return createPortal(
+        <div
+            className="fixed inset-0 z-[100000] flex isolate items-center justify-center overflow-y-auto bg-black/50 p-2 sm:p-4"
             onClick={handleOverlayClick}
         >
-            <div 
-                className={`bg-white rounded-xl shadow-2xl max-w-4xl w-full sm:w-[90vw] md:w-[80vw] lg:w-[60vw] xl:w-[40vw] max-h-[95vh] sm:max-h-[90vh] min-h-[400px] sm:min-h-[500px] relative overflow-hidden transition-all duration-300 ${
-                    isClosing ? 'scale-95 opacity-0' : 'scale-100 opacity-100'
+            <div
+                className={`relative max-h-[95vh] min-h-[400px] w-full max-w-4xl overflow-visible rounded-xl bg-white shadow-2xl transition-all duration-300 sm:min-h-[500px] sm:max-h-[90vh] sm:w-[90vw] md:w-[80vw] lg:w-[60vw] xl:w-[40vw] ${
+                    isClosing ? 'scale-95 opacity-0' : 'opacity-100'
                 }`}
             >
                 {/* Header */}
-                <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-200">
+                <div className="flex items-center justify-between rounded-t-xl border-b border-gray-200 bg-white p-4 sm:p-6">
                     <h2 className="text-xl sm:text-2xl lg:text-3xl font-trajan font-bold text-[#82212a]">
                         Make a Reservation
                     </h2>
@@ -129,8 +162,8 @@ export default function ReservationModal({ isOpen, onClose }: ReservationModalPr
                 </div>
 
                 {/* Content — Dineplan: empty div only; script injects iframe (min ~260×365px per docs) */}
-                <div className="p-4 sm:p-6">
-                    <div className="w-full flex justify-center items-center">
+                <div className="overflow-visible rounded-b-xl bg-white p-4 sm:p-6">
+                    <div className="flex w-full items-center justify-center">
                         <div
                             className="dineplan-widget"
                             data-key="P3S5Wh6b"
@@ -138,13 +171,14 @@ export default function ReservationModal({ isOpen, onClose }: ReservationModalPr
                         />
                     </div>
 
-                    <div className="mt-4 sm:mt-6 text-center">
+                    <div className="mt-4 text-center sm:mt-6">
                         <p className="text-xs sm:text-sm text-gray-500">
                             Need help? Call us at <span className="font-semibold text-[#82212a]">+27 21 879 2356</span>
                         </p>
                     </div>
                 </div>
             </div>
-        </div>
+        </div>,
+        document.body
     );
 }

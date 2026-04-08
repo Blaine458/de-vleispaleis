@@ -220,8 +220,9 @@ html {
   display: none;
 }
 
-.dpfancybox-overlay.dpfancybox-overlay-fixed{
-  z-index: 9999 !important;
+.dpfancybox-overlay.dpfancybox-overlay-fixed {
+  /* Must sit above ReservationModal (z-[100000]) */
+  z-index: 200000 !important;
 }
 
 /* Dineplan Widget Styling */
@@ -237,13 +238,38 @@ html {
 
 .dpfancybox-overlay {
   background-color: rgba(0, 0, 0, 0.5) !important;
-  z-index: 9999 !important;
+  z-index: 200000 !important;
+  /*
+   * iOS Safari: after chrome / “Reduce Protections” changes the visual viewport, %-heights
+   * and stale innerHeight can make this layer match *document* height. Tie to visual viewport:
+   * --dp-vv is set in ReservationModal while the booking modal is open.
+   */
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  height: var(--dp-vv, 100dvh) !important;
+  max-height: var(--dp-vv, 100dvh) !important;
 }
 
 .dpfancybox-wrap {
   background-color: #fffae7 !important;
   border-radius: 12px !important;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+  z-index: 200001 !important;
+  max-height: min(92dvh, calc(var(--dp-vv, 100dvh) * 0.92)) !important;
+  height: auto !important;
+}
+
+.dpfancybox-inner,
+.dpfancybox-outer,
+.dpfancybox-skin {
+  max-height: inherit !important;
+}
+
+.dpfancybox-inner {
+  overflow: auto !important;
+  -webkit-overflow-scrolling: touch !important;
 }
 .dineplan-widget button,
 .dineplan-widget .btn,
