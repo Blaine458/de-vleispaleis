@@ -157,15 +157,15 @@ export default function Reviews() {
         return (
             <>
             <h2 className="text-6xl md:text-5xl lg:text-6xl w-full px-4 sm:px-8 lg:px-10 font-trajan text-left font-semibold mb-6 sm:mb-8 lg:mb-10">What Our Guests Say</h2>
-            <div className="flex overflow-x-hidden min-h-fit relative px-4 sm:px-8 lg:px-10">
+            <div className="relative flex min-h-fit overflow-x-hidden px-4 sm:px-8 lg:px-10 max-md:min-h-[28rem]">
                 <div className="bg-gradient-to-r from-[#fffae7] to-transparent absolute left-0 top-0 min-h-full w-[10vw] sm:w-[15vw] lg:w-[20vw] z-40"></div>
                 <div className="flex w-full justify-center">
-                    <div className="flex flex-col min-w-[280px] sm:min-w-[400px] md:min-w-[500px] lg:min-w-[600px] max-w-[70vw] px-4 sm:px-6 md:px-8 lg:px-10 py-4 sm:py-6 lg:py-8 border-l-3 border-[#82212a] border-opacity-50">
-                        <p className="text-lg sm:text-xl md:text-2xl font-semibold mb-6 sm:mb-8 lg:mb-12 leading-relaxed">
+                    <div className="flex max-w-[70vw] min-w-[280px] flex-col border-l-3 border-[#82212a] border-opacity-50 px-4 py-4 sm:min-w-[400px] sm:px-6 sm:py-6 md:min-w-[500px] md:px-8 lg:min-w-[600px] lg:px-10 lg:py-8 max-md:h-[28rem]">
+                        <p className="mb-6 text-lg font-semibold leading-relaxed sm:mb-8 sm:text-xl md:mb-12 md:text-2xl max-md:min-h-0 max-md:flex-1 max-md:overflow-y-auto max-md:overscroll-y-contain max-md:[-webkit-overflow-scrolling:touch]">
                             "{reviews[0].text}"
                         </p>
-                        <p className=" select-none text-sm sm:text-base md:text-lg font-semibold opacity-60">{reviews[0].name}</p>
-                        <p className=" select-none text-xs sm:text-sm font-semibold">{reviews[0].source}</p>
+                        <p className="select-none text-sm font-semibold opacity-60 sm:text-base md:text-lg max-md:shrink-0">{reviews[0].name}</p>
+                        <p className="select-none text-xs font-semibold sm:text-sm max-md:shrink-0">{reviews[0].source}</p>
                     </div>
                 </div>
                 <div className="bg-gradient-to-l from-[#fffae7] to-transparent absolute right-0 top-0 min-h-full w-[10vw] sm:w-[15vw] lg:w-[20vw] z-40"></div>
@@ -180,21 +180,21 @@ export default function Reviews() {
         
         {isTouchDevice ? (
             // Touch device: Simple swipe carousel with dots - separate containers
-            <div className="flex flex-col items-center w-full">
-                <div className="flex overflow-x-hidden h-fit relative px-4 sm:px-8 lg:px-10 w-full">
+            <div className="flex w-full flex-col items-center">
+                <div className="relative flex w-full max-md:min-h-[28rem] overflow-x-hidden px-4 sm:px-8 lg:px-10 md:h-fit">
                     <div className="bg-gradient-to-r from-[#fffae7] to-transparent absolute left-0 top-0 min-h-full w-[10vw] sm:w-[15vw] lg:w-[20vw] z-40"></div>
                     <div className="flex w-full justify-center">
-                        <div 
+                        <div
                             className="flex w-full justify-center"
                             onTouchStart={handleTouchStart}
                             onTouchEnd={handleTouchEnd}
                         >
-                            <div className="flex flex-col min-w-[280px] sm:min-w-[400px] md:min-w-[500px] lg:min-w-[600px] max-w-[70vw] px-4 sm:px-6 md:px-8 lg:px-10 py-4 sm:py-6 lg:py-8 border-l-3 border-[#82212a] border-opacity-50 transition-all duration-500 ease-in-out">
-                                <p className=" select-none text-lg sm:text-xl md:text-2xl font-semibold mb-6 sm:mb-8 lg:mb-12 leading-relaxed">
+                            <div className="flex max-w-[70vw] min-w-[280px] flex-col border-l-3 border-[#82212a] border-opacity-50 px-4 py-4 transition-all duration-500 ease-in-out sm:min-w-[400px] sm:px-6 sm:py-6 md:min-w-[500px] md:px-8 lg:min-w-[600px] lg:px-10 lg:py-8 max-md:h-[28rem]">
+                                <p className="select-none mb-6 text-lg font-semibold leading-relaxed sm:mb-8 sm:text-xl md:mb-12 md:text-2xl max-md:min-h-0 max-md:flex-1 max-md:overflow-y-auto max-md:overscroll-y-contain max-md:[-webkit-overflow-scrolling:touch]">
                                     "{reviews[currentIndex].text}"
                                 </p>
-                                <p className=" select-none text-sm sm:text-base md:text-lg font-semibold opacity-60">{reviews[currentIndex].name}</p>
-                                <p className=" select-none text-xs sm:text-sm font-semibold">{reviews[currentIndex].source}</p>
+                                <p className="select-none text-sm font-semibold opacity-60 sm:text-base md:text-lg max-md:shrink-0">{reviews[currentIndex].name}</p>
+                                <p className="select-none text-xs font-semibold sm:text-sm max-md:shrink-0">{reviews[currentIndex].source}</p>
                             </div>
                         </div>
                     </div>
