@@ -28,7 +28,7 @@
             },
             {
                 question: "What is the best way to contact you?",
-                answer: "You can contact us by email at info@vleispaleis.co.za or call us at +27 21 879 2356. We also have an online reservation system on our website."
+                answer: "You can contact us by email at info@devleispaleis.co.za or call us at +27 21 879 2356. We also have an online reservation system on our website."
             }
         ];
 
