@@ -61,6 +61,19 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://public-prod.dineplan.com" />
         <link rel="dns-prefetch" href="https://account.dineplan.com" />
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-XZNC33FHFL"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-XZNC33FHFL');
+          `}
+        </Script>
         {/* Dineplan: load in head before window load so their library initializes (see dineplan.widget.min.js). Avoid id="dineplan-widget" — their code treats that id as a widget root. */}
         <Script
           src="https://public-prod.dineplan.com/widget/dineplan.widget.min.js"

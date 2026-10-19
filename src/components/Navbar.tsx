@@ -217,9 +217,9 @@ export default function Navbar() {
                 <span>Gallery</span>
                 <ChevronRight size={20} className="text-[#82212a]/60" />
               </Link>
-              <a 
-                href="/vleispaleis-menu.pdf" 
-                target="_blank" 
+              <a
+                href="/vleispaleis-menu.pdf"
+                target="_blank"
                 rel="noopener noreferrer"
                 onClick={closeMobileMenu}
                 className="flex items-center justify-between text-xl font-bold text-[#223534] py-4 px-4 rounded-xl hover:bg-[#82212a]/10 hover:text-[#82212a] transition-all duration-300 border border-transparent hover:border-[#82212a]/20"

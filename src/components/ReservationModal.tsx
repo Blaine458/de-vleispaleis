@@ -161,14 +161,42 @@ export default function ReservationModal({ isOpen, onClose }: ReservationModalPr
                     </button>
                 </div>
 
-                {/* Content — Dineplan: empty div only; script injects iframe (min ~260×365px per docs) */}
+                {/* Content — embed the Dineplan iframe ourselves.
+                    Their script only scans for `.dineplan-widget` once (retries ~30s), so empty
+                    placeholders mounted later (this modal) often never get an iframe. Avoid that
+                    class so their init doesn't wipe React's DOM via innerHTML. Fancybox still
+                    comes from dineplan.widget.min.js via postMessage. */}
                 <div className="overflow-visible rounded-b-xl bg-white p-4 sm:p-6">
                     <div className="flex w-full items-center justify-center">
                         <div
-                            className="dineplan-widget"
-                            data-key="P3S5Wh6b"
-                            style={{ minWidth: 260, minHeight: 365 }}
-                        />
+                            className="dineplan-booking"
+                            style={{
+                                display: 'block',
+                                minWidth: 260,
+                                minHeight: 365,
+                                width: 300,
+                                border: '1px solid #bfbfbf',
+                                backgroundColor: '#fff',
+                            }}
+                        >
+                            <iframe
+                                className="dp-dframe"
+                                src="https://account.dineplan.com/widget/v3/P3S5Wh6b"
+                                title="Book a table at De Vleispaleis"
+                                scrolling="no"
+                                style={{
+                                    display: 'block',
+                                    height: 430,
+                                    width: 299,
+                                    overflow: 'hidden',
+                                    border: 'none',
+                                    backgroundImage: 'url(https://www.dineplan.com/resources/images/loading.gif)',
+                                    backgroundRepeat: 'no-repeat',
+                                    backgroundPosition: '50% 50%',
+                                    backgroundSize: '60px 60px',
+                                }}
+                            />
+                        </div>
                     </div>
 
                     <div className="mt-4 text-center sm:mt-6">

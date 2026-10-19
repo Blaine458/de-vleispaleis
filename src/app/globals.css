@@ -227,7 +227,9 @@ html {
 
 /* Dineplan Widget Styling */
 .dineplan-widget,
-.dineplan-widget * {
+.dineplan-widget *,
+.dineplan-booking,
+.dineplan-booking * {
   font-family: var(--font-helvetica), 'Helvetica Neue', Arial, sans-serif !important;
 }
 

@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-// Removed unused PrimaryButton import
 
 export default function MenusSection() {
     return (
@@ -59,14 +58,22 @@ export default function MenusSection() {
                             <p className="text-lg text-[#223534] mb-auto leading-relaxed font-light">
                                 Curated collection of South African wines and international selections to complement your meal.
                             </p>
-                            <Link 
-                                target="_blank" 
-                                rel="noopener noreferrer" 
+                            <a
                                 href="/vleispaleis-menu.pdf#page=11"
-                                className="inline-block px-8 py-4 min-h-[44px] border-[#82212a] border-2 rounded-full hover:text-white hover:bg-[#82212a] text-[#82212a] transition-all duration-300 font-medium tracking-wide uppercase text-sm mt-8 text-center"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="mt-8 hidden min-h-[44px] rounded-full border-2 border-[#82212a] px-8 py-4 text-center text-sm font-medium uppercase tracking-wide text-[#82212a] transition-all duration-300 hover:bg-[#82212a] hover:text-white lg:inline-block"
                             >
                                 View Wines
-                            </Link>
+                            </a>
+                            <a
+                                href="/vleispaleis-wine-menu.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="mt-8 inline-block min-h-[44px] rounded-full border-2 border-[#82212a] px-8 py-4 text-center text-sm font-medium uppercase tracking-wide text-[#82212a] transition-all duration-300 hover:bg-[#82212a] hover:text-white lg:hidden"
+                            >
+                                Wine Menu
+                            </a>
                         </div>
                     </div>
 
@@ -81,14 +88,22 @@ export default function MenusSection() {
                             <p className="text-lg text-[#223534] mb-auto leading-relaxed font-light">
                                 An extensive range of cocktails, spirits, craft beers, and non-alcoholic refreshments to suit every taste.
                             </p>
-                            <Link 
-                                target="_blank" 
-                                rel="noopener noreferrer" 
+                            <a
                                 href="/vleispaleis-menu.pdf#page=24"
-                                className="inline-block px-8 py-4 min-h-[44px] border-[#82212a] border-2 rounded-full hover:text-white hover:bg-[#82212a] text-[#82212a] transition-all duration-300 font-medium tracking-wide uppercase text-sm mt-8 text-center"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="mt-8 hidden min-h-[44px] rounded-full border-2 border-[#82212a] px-8 py-4 text-center text-sm font-medium uppercase tracking-wide text-[#82212a] transition-all duration-300 hover:bg-[#82212a] hover:text-white lg:inline-block"
                             >
                                 View Drinks
-                            </Link>
+                            </a>
+                            <a
+                                href="/vleispaleis-drinks-menu.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="mt-8 inline-block min-h-[44px] rounded-full border-2 border-[#82212a] px-8 py-4 text-center text-sm font-medium uppercase tracking-wide text-[#82212a] transition-all duration-300 hover:bg-[#82212a] hover:text-white lg:hidden"
+                            >
+                                Drinks Menu
+                            </a>
                         </div>
                     </div>
                 </div>
