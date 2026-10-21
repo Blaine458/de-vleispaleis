@@ -19,10 +19,10 @@ export const metadata: Metadata = {
     description: SITE_DESCRIPTION,
     images: [
       {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "De Vleispaleis steakhouse at Black Horse Centre, Dorp Street, Stellenbosch",
+        url: "/vleis-logo.png",
+        width: 300,
+        height: 300,
+        alt: "De Vleispaleis logo",
       },
     ],
   },
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
-    images: ["/og-image.jpg"],
+    images: ["/vleis-logo.png"],
   },
 };
 
