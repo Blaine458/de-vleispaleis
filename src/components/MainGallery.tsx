@@ -7,10 +7,10 @@ export default function MainGallery() {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     
     const images = [
-        { src: "/VleisPaleis-10.webp", alt: "Restaurant interior" },
-        { src: "/VleisPaleis-7.webp", alt: "Restaurant dining" },
-        { src: "/VleisPaleis-8.webp", alt: "Restaurant atmosphere" },
-        { src: "/VleisPaleis-9.webp", alt: "Restaurant atmosphere" }
+        { src: "/VleisPaleis-10.webp", alt: "Interior of De Vleispaleis steakhouse restaurant in Stellenbosch" },
+        { src: "/VleisPaleis-7.webp", alt: "Dining area at De Vleispaleis grillroom in Stellenbosch" },
+        { src: "/VleisPaleis-8.webp", alt: "Restaurant atmosphere at De Vleispaleis steakhouse in Stellenbosch" },
+        { src: "/VleisPaleis-9.webp", alt: "Ambience inside De Vleispaleis grillroom and bar, Stellenbosch" }
     ];
 
     const handlePreviousImage = () => {

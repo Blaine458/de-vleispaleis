@@ -32,7 +32,7 @@ export default function Footer() {
                 >
                     <span className="text-2xl sm:text-3xl lg:text-4xl font-trajan">Reservation</span>
                 </button>
-                <Image src="/vleis-logo-white.png" alt="logo" width={60} height={60} className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] z-20 " />
+                <Image src="/vleis-logo-white.png" alt="De Vleispaleis logo" width={60} height={60} className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] z-20 " />
             </div>
             <div className="flex flex-col sm:flex-row w-screen md:min-h-[15%]">
                 <Link href="https://www.google.com/maps/place/De+Vleispaleis+Steakhouse/@-33.9397682,18.8532666,18z/data=!3m1!4b1!4m6!3m5!1s0x1dcdb3778fb67b97:0x39ad5edc1a045bbd!8m2!3d-33.9397682!4d18.8545541!16s%2Fg%2F11lkx9gmwg?entry=ttu&g_ep=EgoyMDI1MDkxMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center min-h-[44px] text-xs sm:text-sm font-extralight bg-[#82212a] border-y-[.5px] border-r-[0.5px] border-[#fffae7]/30 w-full sm:w-[25%] py-4 sm:py-3">
@@ -84,12 +84,12 @@ export default function Footer() {
                 <p className="text-xs sm:text-sm font-extralight text-center sm:text-left mb-2 sm:mb-0">© 2026 De Vleispaleis. All rights reserved.</p>
                 <p className="text-sm sm:text-lg font-extralight text-center sm:text-right mb-4 sm:mb-0">Crafted by <Link href="https://www.bitloom.co.za" className="hover:opacity-70 transition-opacity font-extrabold">BitLoom</Link></p>
                 <div className="hidden sm:flex items-center justify-center absolute top-[50%] left-[50%] translate-x-[-50%] z-50 translate-y-[-50%]">
-                    <Image src="/vleis-logo.png" alt="vleis-logo" width={60} height={60} className="sm:w-20 sm:h-20" />
+                    <Image src="/vleis-logo.png" alt="De Vleispaleis logo" width={60} height={60} className="sm:w-20 sm:h-20" />
                     <span className="text-lg sm:text-2xl font-trajan font-bold">De Vleispaleis</span>
                 </div>
                 {/* Mobile logo - shown only on mobile */}
                 <div className="flex items-center justify-center sm:hidden mt-2">
-                    <Image src="/vleis-logo.png" alt="vleis-logo" width={40} height={40} />
+                    <Image src="/vleis-logo.png" alt="De Vleispaleis logo" width={40} height={40} />
                     <span className="text-lg font-trajan font-bold ml-2">De Vleispaleis</span>
                 </div>
             </div>

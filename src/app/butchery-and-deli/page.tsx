@@ -47,11 +47,11 @@ export default function ButcheryAndDeli() {
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[6rem] leading-none font-trajan font-bold text-[#fffae7] z-20 break-words">BUTCHERY & DELI</h1>
                 </div>
                 <div className="bg-black/50 absolute top-0 left-0 right-0 h-full w-full z-10"></div>
-                <Image priority src="/VleisPaleis-29.webp" alt="Butchery and Deli" width={1920} height={1080} className="absolute top-0 left-0 min-w-[100vw] right-0 z-0 min-h-[80vh] sm:min-h-[90vh] lg:min-h-[100vh] object-cover" />
+                <Image priority src="/VleisPaleis-29.webp" alt="De Vleispaleis artisanal butchery and deli in Stellenbosch" width={1920} height={1080} className="absolute top-0 left-0 min-w-[100vw] right-0 z-0 min-h-[80vh] sm:min-h-[90vh] lg:min-h-[100vh] object-cover" />
             </section>
             <section className="flex flex-col lg:flex-row gap-8 h-fit bg-[#fffae7] mt-[80vh] md:mt-[100vh] items-center relative text-[#223534] px-4 sm:px-8 lg:px-30 pt-20 sm:pt-32 lg:pt-40">
                 <div className="flex flex-col gap-4 w-full lg:w-auto">
-                <h1 className="text-6xl sm:text-5xl md:text-6xl lg:text-[6rem] leading-none font-trajan font-bold z-20">Artisinal <br /> Butchery</h1>
+                <h2 className="text-6xl sm:text-5xl md:text-6xl lg:text-[6rem] leading-none font-trajan font-bold z-20">Artisinal <br /> Butchery</h2>
             <p className="text-base sm:text-lg font-extralight z-20 mb-8 leading-tight">You can now enjoy all of our finest AAA grade perfectly matured steak cuts for your home grill or braai…
 <br />
 <br />
@@ -60,7 +60,7 @@ All the cuts are matured for a minimum of 28-32 days to ensure absolute maximum 
 <br />
 We also hand select and air cure only the very best beef Biltong in our herb & spice recipes that have been developed over 40 years.</p>
                 </div>
-                <Image src="/VP-Cuts.png" alt="Cuts of beef" width={1920} height={1080} className="max-h-[40vh] sm:max-h-[45vh] lg:max-h-[50vh] w-full lg:max-w-[50%] object-contain" style={{ objectFit: 'contain' }} />
+                <Image src="/VP-Cuts.png" alt="Beef cuts available at the De Vleispaleis butchery and deli" width={1920} height={1080} className="max-h-[40vh] sm:max-h-[45vh] lg:max-h-[50vh] w-full lg:max-w-[50%] object-contain" style={{ objectFit: 'contain' }} />
             </section>
             <section className="flex flex-col gap-4 h-fit bg-[#fffae7] text-[#223534]">
             <div className="flex flex-col gap-2 px-4 sm:px-8 lg:px-30 py-12 sm:py-16 lg:py-20">
@@ -74,7 +74,7 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                     >
                         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full">
                             <div className={`w-16 h-16 ${openItem === 0 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center aspect-square justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
-                                <Image src="/3.webp" alt="Fillet" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
+                                <Image src="/3.webp" alt="Fillet steak cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
                             </div>
                             <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
                                 <h3 
@@ -112,7 +112,7 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                     >
                         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full">
                             <div className={`w-16 h-16 ${openItem === 1 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center aspect-square justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
-                                    <Image src="/6.webp" alt="meat cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
+                                    <Image src="/6.webp" alt="Sirloin steak cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
                             </div>
                             <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
                                 <h3 
@@ -150,7 +150,7 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                     >
                         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full">
                             <div className={`w-16 h-16 ${openItem === 2 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
-                                    <Image src="/7.webp" alt="meat cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
+                                    <Image src="/7.webp" alt="Rump steak cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
                             </div>
                             <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
                                 <h3 
@@ -188,7 +188,7 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                     >
                         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full">
                             <div className={`w-16 h-16 ${openItem === 3 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
-                                    <Image src="/8.webp" alt="meat cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
+                                    <Image src="/8.webp" alt="Picanha steak cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
                             </div>
                             <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
                                 <h3 
@@ -230,7 +230,7 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                     >
                         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full">
                             <div className={`w-16 h-16 ${openItem === 4 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center aspect-square justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
-                                <Image src="/8.webp" alt="meat cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
+                                <Image src="/8.webp" alt="T-bone steak on the bone" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
                             </div>
                             <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
                                 <h3 
@@ -268,7 +268,7 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                     >
                         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full">
                             <div className={`w-16 h-16 ${openItem === 5 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center aspect-square justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
-                                    <Image src="/11.webp" alt="meat cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
+                                    <Image src="/11.webp" alt="Sirloin on the bone steak cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
                             </div>
                             <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
                                 <h3 
@@ -306,7 +306,7 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                     >
                         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full">
                             <div className={`w-16 h-16 ${openItem === 6 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
-                                    <Image src="/5.webp" alt="meat cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
+                                    <Image src="/5.webp" alt="Fillet on the bone steak cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
                             </div>
                             <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
                                 <h3 
@@ -344,7 +344,7 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                     >
                         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full">
                             <div className={`w-16 h-16 ${openItem === 7 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
-                                    <Image src="/12.webp" alt="meat cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
+                                    <Image src="/12.webp" alt="Tomahawk steak on the bone" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
                             </div>
                             <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
                                 <h3 
@@ -387,7 +387,7 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                     >
                         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full">
                             <div className={`w-16 h-16 ${openItem === 8 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center aspect-square justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
-                                <Image src="/10.webp" alt="meat cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
+                                <Image src="/10.webp" alt="Wagyu ribeye steak cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
                             </div>
                             <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
                                 <h3 
@@ -425,7 +425,7 @@ We also hand select and air cure only the very best beef Biltong in our herb & s
                     >
                         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full">
                             <div className={`w-16 h-16 ${openItem === 9 ? 'w-[250px] h-[250px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px]' : ''} bg-[#82212a]/10 flex items-center aspect-square justify-center transition-all duration-500 ease-in-out overflow-hidden rounded-xl`}>
-                                    <Image src="/3.webp" alt="meat cut" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
+                                    <Image src="/3.webp" alt="Beef burger patty" width={400} height={400} className="w-full h-full object-cover aspect-square"/>
                             </div>
                             <div className="flex flex-col justify-center pl-0 sm:pl-10 w-full">
                                 <h3 

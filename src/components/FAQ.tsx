@@ -50,7 +50,7 @@
                                 onClick={() => toggleItem(index)}
                                 className="flex justify-between items-center py-3 sm:py-4 w-full text-left hover:cursor-pointer hover:opacity-80 transition-all duration-300"
                             >
-                                <h2 className="font-semibold text-lg sm:text-xl lg:text-2xl pr-4">{item.question}</h2>
+                                <span className="font-semibold text-lg sm:text-xl lg:text-2xl pr-4">{item.question}</span>
                                 {openItems.includes(index) ? (
                                     <ChevronUp size={20} className="flex-shrink-0 sm:w-6 sm:h-6" />
                                 ) : (

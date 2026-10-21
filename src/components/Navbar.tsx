@@ -85,8 +85,8 @@ export default function Navbar() {
             }}
             className="cursor-pointer"
           >
-            <Image src="/vleis-logo-white.png" alt="logo" width={80} height={80} className={`${isScrolled ? 'hidden opacity-0' : 'block opacity-100'} transition-all duration-900`}/>
-            <Image src="/vleis-logo.png" alt="logo" width={80} height={80} className={`${isScrolled ? 'block opacity-100' : 'hidden opacity-0'} transition-all duration-900`}/>
+            <Image src="/vleis-logo-white.png" alt="De Vleispaleis logo" width={80} height={80} className={`${isScrolled ? 'hidden opacity-0' : 'block opacity-100'} transition-all duration-900`}/>
+            <Image src="/vleis-logo.png" alt="De Vleispaleis logo" width={80} height={80} className={`${isScrolled ? 'block opacity-100' : 'hidden opacity-0'} transition-all duration-900`}/>
           </Link>
         </div>
         <div className="flex items-center h-fit w-fit">
@@ -158,14 +158,14 @@ export default function Navbar() {
         >
           <Image 
             src="/vleis-logo-white.png" 
-            alt="logo" 
+            alt="De Vleispaleis logo" 
             width={60} 
             height={60} 
             className={`${isScrolled || isMobileMenuOpen ? 'hidden opacity-0' : 'block opacity-100'} transition-all duration-900`}
           />
           <Image 
             src="/vleis-logo.png" 
-            alt="logo" 
+            alt="De Vleispaleis logo" 
             width={60} 
             height={60} 
             className={`${isScrolled || isMobileMenuOpen ? 'block opacity-100' : 'hidden opacity-0'} transition-all duration-900`}

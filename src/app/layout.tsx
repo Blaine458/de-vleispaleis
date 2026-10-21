@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import LenisProvider from "@/components/LenisProvider";
 import dynamic from 'next/dynamic';
 import Script from "next/script";
+import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from "@/lib/site";
 
 // Lazy load non-critical components to reduce initial bundle size
 const Footer = dynamic(() => import('@/components/Footer'), {
@@ -36,8 +37,49 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "De Vleispaleis - Steakhouse & Grillroom",
-  description: "Experience the finest in South African cuisine at De Vleispaleis. Premium AAA grade steak cuts, artisanal butchery, and exceptional dining in Stellenbosch's wine country.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: SITE_TITLE,
+    template: "%s | De Vleispaleis",
+  },
+  description: SITE_DESCRIPTION,
+  applicationName: "De Vleispaleis",
+  authors: [{ name: "De Vleispaleis" }],
+  creator: "De Vleispaleis",
+  publisher: "De Vleispaleis",
+  category: "Restaurant",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_ZA",
+    url: "/",
+    siteName: "De Vleispaleis",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "De Vleispaleis steakhouse at Black Horse Centre, Dorp Street, Stellenbosch",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: ["/og-image.jpg"],
+  },
   icons: {
     icon: '/vleis-logo.png',
     shortcut: '/vleis-logo.png',
